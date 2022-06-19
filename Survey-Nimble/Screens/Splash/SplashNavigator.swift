@@ -22,6 +22,8 @@ struct SplashNavigator: SplashNavigatorType {
     }
     
     func toLoginScreen() {
-        // navigate to Home Screen
+        let loginVC = LoginViewController()
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        appDelegate.window?.rootViewController = loginVC
     }
 }

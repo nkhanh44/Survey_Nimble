@@ -9,11 +9,23 @@
 /* Begin PBXBuildFile section */
 		28AF3C6C83FB9ADA00F53CE1 /* Pods_Survey_Nimble_Survey_NimbleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B46EDBFF6E0EABEC40B3CA4 /* Pods_Survey_Nimble_Survey_NimbleUITests.framework */; };
 		467FA09ED7861BE32F074F46 /* Pods_Survey_Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A496DCA056E9788C60D890E /* Pods_Survey_Nimble.framework */; };
+		8B392D35285DB449006042A7 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B392D34285DB449006042A7 /* UITextField+.swift */; };
 		8B67D371285C8378006B7AB0 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D370285C8378006B7AB0 /* SplashViewController.swift */; };
 		8B67D373285C8409006B7AB0 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D372285C8409006B7AB0 /* UIViewController+.swift */; };
 		8B67D375285C8469006B7AB0 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D374285C8469006B7AB0 /* SplashViewModel.swift */; };
 		8B67D377285C8A5B006B7AB0 /* ViewModelBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D376285C8A5B006B7AB0 /* ViewModelBased.swift */; };
 		8B67D381285D2D77006B7AB0 /* SplashNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D380285D2D77006B7AB0 /* SplashNavigator.swift */; };
+		8B67D383285D6618006B7AB0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D382285D6618006B7AB0 /* LoginViewController.swift */; };
+		8B67D385285D6622006B7AB0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D384285D6622006B7AB0 /* LoginViewModel.swift */; };
+		8B67D387285D6632006B7AB0 /* LoginNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D386285D6632006B7AB0 /* LoginNavigator.swift */; };
+		8B67D389285D6CCE006B7AB0 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D388285D6CCE006B7AB0 /* UIView+.swift */; };
+		8B67D38B285D745B006B7AB0 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D38A285D745B006B7AB0 /* UIImageView+.swift */; };
+		8B67D390285D80B1006B7AB0 /* SNTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D38F285D80B1006B7AB0 /* SNTextField.swift */; };
+		8B67D392285D86C0006B7AB0 /* SNLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D391285D86C0006B7AB0 /* SNLabel.swift */; };
+		8B67D394285D86D4006B7AB0 /* SNButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D393285D86D4006B7AB0 /* SNButton.swift */; };
+		8B67D396285D8C24006B7AB0 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D395285D8C24006B7AB0 /* UIColor+.swift */; };
+		8B67D398285D8F2E006B7AB0 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D397285D8F2E006B7AB0 /* UIFont+.swift */; };
+		8BB414E1285E215F00BC790F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB414E0285E215F00BC790F /* BaseViewController.swift */; };
 		8BFAD36A285C4BB6005FCC06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFAD369285C4BB6005FCC06 /* AppDelegate.swift */; };
 		8BFAD373285C4BB9005FCC06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BFAD372285C4BB9005FCC06 /* Assets.xcassets */; };
 		8BFAD376285C4BB9005FCC06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFAD374285C4BB9005FCC06 /* LaunchScreen.storyboard */; };
@@ -64,11 +76,23 @@
 		636D045FFB3B4A7C0D839EAB /* Pods_Survey_NimbleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Survey_NimbleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A9E430AF19C44979D3E287 /* Pods-Survey-Nimble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Survey-Nimble.debug.xcconfig"; path = "Target Support Files/Pods-Survey-Nimble/Pods-Survey-Nimble.debug.xcconfig"; sourceTree = "<group>"; };
 		8A496DCA056E9788C60D890E /* Pods_Survey_Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Survey_Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B392D34285DB449006042A7 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		8B67D370285C8378006B7AB0 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		8B67D372285C8409006B7AB0 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		8B67D374285C8469006B7AB0 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		8B67D376285C8A5B006B7AB0 /* ViewModelBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBased.swift; sourceTree = "<group>"; };
 		8B67D380285D2D77006B7AB0 /* SplashNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashNavigator.swift; sourceTree = "<group>"; };
+		8B67D382285D6618006B7AB0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8B67D384285D6622006B7AB0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		8B67D386285D6632006B7AB0 /* LoginNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigator.swift; sourceTree = "<group>"; };
+		8B67D388285D6CCE006B7AB0 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		8B67D38A285D745B006B7AB0 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		8B67D38F285D80B1006B7AB0 /* SNTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNTextField.swift; sourceTree = "<group>"; };
+		8B67D391285D86C0006B7AB0 /* SNLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNLabel.swift; sourceTree = "<group>"; };
+		8B67D393285D86D4006B7AB0 /* SNButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNButton.swift; sourceTree = "<group>"; };
+		8B67D395285D8C24006B7AB0 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		8B67D397285D8F2E006B7AB0 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		8BB414E0285E215F00BC790F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		8BFAD366285C4BB6005FCC06 /* Survey-Nimble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Survey-Nimble.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BFAD369285C4BB6005FCC06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BFAD372285C4BB9005FCC06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -151,6 +175,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8B67D38E285D8058006B7AB0 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				8B67D38F285D80B1006B7AB0 /* SNTextField.swift */,
+				8B67D391285D86C0006B7AB0 /* SNLabel.swift */,
+				8B67D393285D86D4006B7AB0 /* SNButton.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		8BB414DF285E214500BC790F /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				8BB414E0285E215F00BC790F /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		8BB414E4285EEC7300BC790F /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
 		8BFAD35D285C4BB6005FCC06 = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +229,7 @@
 				8BFAD3A2285C5EA9005FCC06 /* Utils */,
 				8BFAD399285C5DC7005FCC06 /* Common */,
 				8BFAD39B285C5DD8005FCC06 /* Data */,
+				8B67D38E285D8058006B7AB0 /* CustomViews */,
 				8BFAD39E285C5E70005FCC06 /* Screens */,
 				8BFAD39C285C5DE0005FCC06 /* Extensions */,
 				8BFAD39D285C5E5E005FCC06 /* Resources */,
@@ -209,6 +259,7 @@
 		8BFAD399285C5DC7005FCC06 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8BB414DF285E214500BC790F /* Base */,
 				8BFAD3B7285C6A14005FCC06 /* ViewModelType.swift */,
 				8B67D376285C8A5B006B7AB0 /* ViewModelBased.swift */,
 			);
@@ -236,6 +287,11 @@
 			children = (
 				8BFAD3C1285C6DF2005FCC06 /* ObservableType+.swift */,
 				8B67D372285C8409006B7AB0 /* UIViewController+.swift */,
+				8B67D388285D6CCE006B7AB0 /* UIView+.swift */,
+				8B67D38A285D745B006B7AB0 /* UIImageView+.swift */,
+				8B67D395285D8C24006B7AB0 /* UIColor+.swift */,
+				8B67D397285D8F2E006B7AB0 /* UIFont+.swift */,
+				8B392D34285DB449006042A7 /* UITextField+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -253,6 +309,7 @@
 		8BFAD39E285C5E70005FCC06 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				8BB414E4285EEC7300BC790F /* ForgotPassword */,
 				8BFAD3A1285C5E9A005FCC06 /* Home */,
 				8BFAD3A0285C5E8D005FCC06 /* Login */,
 				8BFAD39F285C5E7F005FCC06 /* Splash */,
@@ -273,6 +330,9 @@
 		8BFAD3A0285C5E8D005FCC06 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				8B67D382285D6618006B7AB0 /* LoginViewController.swift */,
+				8B67D384285D6622006B7AB0 /* LoginViewModel.swift */,
+				8B67D386285D6632006B7AB0 /* LoginNavigator.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -596,17 +656,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B67D383285D6618006B7AB0 /* LoginViewController.swift in Sources */,
+				8B67D390285D80B1006B7AB0 /* SNTextField.swift in Sources */,
+				8B67D394285D86D4006B7AB0 /* SNButton.swift in Sources */,
 				8B67D377285C8A5B006B7AB0 /* ViewModelBased.swift in Sources */,
 				8BFAD36A285C4BB6005FCC06 /* AppDelegate.swift in Sources */,
+				8B67D387285D6632006B7AB0 /* LoginNavigator.swift in Sources */,
+				8B67D38B285D745B006B7AB0 /* UIImageView+.swift in Sources */,
 				8BFAD3C2285C6DF2005FCC06 /* ObservableType+.swift in Sources */,
+				8B67D392285D86C0006B7AB0 /* SNLabel.swift in Sources */,
+				8B67D396285D8C24006B7AB0 /* UIColor+.swift in Sources */,
+				8BB414E1285E215F00BC790F /* BaseViewController.swift in Sources */,
+				8B67D398285D8F2E006B7AB0 /* UIFont+.swift in Sources */,
 				8B67D373285C8409006B7AB0 /* UIViewController+.swift in Sources */,
 				8B67D381285D2D77006B7AB0 /* SplashNavigator.swift in Sources */,
 				8B67D375285C8469006B7AB0 /* SplashViewModel.swift in Sources */,
 				8BFAD3BF285C6A9F005FCC06 /* ActivityIndicator.swift in Sources */,
+				8B67D389285D6CCE006B7AB0 /* UIView+.swift in Sources */,
+				8B67D385285D6622006B7AB0 /* LoginViewModel.swift in Sources */,
 				8BFAD3B5285C693C005FCC06 /* Constants.swift in Sources */,
 				8BFAD3B8285C6A14005FCC06 /* ViewModelType.swift in Sources */,
 				8B67D371285C8378006B7AB0 /* SplashViewController.swift in Sources */,
 				8BFAD3BC285C6A8E005FCC06 /* ErrorTracker.swift in Sources */,
+				8B392D35285DB449006042A7 /* UITextField+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
