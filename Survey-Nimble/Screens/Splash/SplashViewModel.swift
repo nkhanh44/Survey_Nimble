@@ -16,7 +16,8 @@ struct SplashViewModel: ViewModel {
     func transform(_ input: SplashViewModel.Input, disposeBag: DisposeBag) -> SplashViewModel.Output {
         let errorTracker = ErrorTracker()
         
-        input.loaded
+        input.loadTrigger
+            .delay(RxTimeInterval.seconds(2))
             .drive(onNext: navigator.toLoginScreen)
             .disposed(by: disposeBag)
                 
@@ -25,8 +26,9 @@ struct SplashViewModel: ViewModel {
 }
 
 extension SplashViewModel {
+    
     struct Input {
-        let loaded: Driver<Void>
+        let loadTrigger: Driver<Void>
     }
 
     struct Output {
