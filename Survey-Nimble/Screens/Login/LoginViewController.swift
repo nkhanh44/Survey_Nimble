@@ -17,8 +17,10 @@ final class LoginViewController: BaseViewController, ViewModelBased {
     
     private let emailTextField = SNTextField()
     private let passwordTextField = SNTextField()
-    private let submitButton = SNButton(backgroundColor: .white, title: "Log in")
+    private let loginButton = SNButton(backgroundColor: .white, title: Constants.Localization.login)
     private let stackView = UIStackView()
+    private let errorEmailLabel = SNLabel(fontSize: 9, color: .red)
+    private let errorPasswordLabel = SNLabel(fontSize: 9, color: .red)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,15 +33,35 @@ final class LoginViewController: BaseViewController, ViewModelBased {
     }
     
     func bindViewModel() {
-        let input = LoginViewModel.Input(loaded: Driver.just(()))
+        let input = LoginViewModel.Input(emailTrigger: emailTextField.rx.textWithControlEvents(.editingChanged),
+                                         passwordTrigger: passwordTextField.rx.textWithControlEvents(.editingChanged),
+                                         loginTrigger: loginButton.rx.tap.asObservable())
         let output = viewModel.transform(input, disposeBag: disposeBag)
         
-        output.error
-            .drive()
+        output.enabledLoginButton
+            .drive(loginButton.rx.isValid)
             .disposed(by: disposeBag)
         
-        output.activity
-            .drive()
+        output.validateEmail
+            .drive(onNext: { [weak self] isValid in
+                self?.emailTextField.isValid = isValid
+                self?.errorEmailLabel.isHidden = isValid
+            })
+            .disposed(by: disposeBag)
+        
+        output.validatePassword
+            .drive(onNext: { [weak self] isValid in
+                self?.passwordTextField.isValid = isValid
+                self?.errorPasswordLabel.isHidden = isValid
+            })
+            .disposed(by: disposeBag)
+        
+        output.error
+            .drive(rx.error)
+            .disposed(by: disposeBag)
+        
+        output.isLoading
+            .drive(rx.isLoading)
             .disposed(by: disposeBag)
     }
     
@@ -53,8 +75,10 @@ final class LoginViewController: BaseViewController, ViewModelBased {
 extension LoginViewController {
     
     private func configure() {
-        let navigator = SplashNavigator(navigationController: navigationController)
-        viewModel = LoginViewModel(navigator: navigator)
+        let navigator = LoginNavigator(navigationController: navigationController)
+        let repository = LoginRepository(api: APIService.shared)
+        viewModel = LoginViewModel(navigator: navigator,
+                                   repository: repository)
         bindViewModel()
     }
     
@@ -72,6 +96,7 @@ extension LoginViewController {
         
         emailTextField.delegate = self
         emailTextField.placeholderText = "Email"
+        emailTextField.keyboardType = .emailAddress
         emailTextField.snp.makeConstraints {
             $0.height.equalTo(56)
         }
@@ -80,13 +105,33 @@ extension LoginViewController {
         passwordTextField.placeholderText = "Password"
         passwordTextField.type = .password
         
-        submitButton.isValid = true
+        emailTextField.addSubview(errorEmailLabel)
+        
+        errorEmailLabel.text = SNError.invalidEmail.errorDescription
+        errorEmailLabel.isHidden = true
+        errorEmailLabel.snp.makeConstraints {
+            $0.top.equalTo(emailTextField.snp.bottom).inset(-5)
+            $0.leading.equalTo(emailTextField.snp.leading).inset(5)
+            $0.height.equalTo(10)
+        }
+        
+        passwordTextField.addSubview(errorPasswordLabel)
+        
+        errorPasswordLabel.text = SNError.invalidPassword.errorDescription
+        errorPasswordLabel.isHidden = true
+        errorPasswordLabel.snp.makeConstraints {
+            $0.top.equalTo(passwordTextField.snp.bottom).inset(-5)
+            $0.leading.equalTo(passwordTextField.snp.leading).inset(5)
+            $0.height.equalTo(10)
+        }
+        
+        loginButton.isValid = false
         
         hideLoginComponents(with: true)
     }
     
     private func animateUI() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             UIView.animate(withDuration: 1.0) {
                 let originalTransform = self.logoImageView.transform
                 let scaledTransform = originalTransform.scaledBy(x: 0.75, y: 0.8)
@@ -105,7 +150,7 @@ extension LoginViewController {
     private func hideLoginComponents(with isHidden: Bool) {
         emailTextField.isHidden = isHidden
         passwordTextField.isHidden = isHidden
-        submitButton.isHidden = isHidden
+        loginButton.isHidden = isHidden
     }
     
     private func configureStackView() {
@@ -115,7 +160,7 @@ extension LoginViewController {
         
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(passwordTextField)
-        stackView.addArrangedSubview(submitButton)
+        stackView.addArrangedSubview(loginButton)
     }
 }
 

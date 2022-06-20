@@ -8,6 +8,7 @@ import RxSwift
 import RxCocoa
 
 open class ActivityIndicator: SharedSequenceConvertibleType {
+    
     public typealias Element = Bool
     public typealias SharingStrategy = DriverSharingStrategy
 

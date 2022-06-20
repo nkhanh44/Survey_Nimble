@@ -17,6 +17,7 @@ struct LoginNavigator: LoginNavigatorType {
     let navigationController: UINavigationController?
     
     func toHomeScreen() {
-        // navigate to Home Screen after login successfully
+        let homeVC = HomeViewController()
+        navigationController?.pushViewController(homeVC, animated: true)
     }
 }
