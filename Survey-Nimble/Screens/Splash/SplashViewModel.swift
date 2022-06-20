@@ -25,6 +25,8 @@ struct SplashViewModel: ViewModel {
     }
 }
 
+// MARK: Input & Output
+
 extension SplashViewModel {
     
     struct Input {

@@ -64,7 +64,7 @@ extension Reactive where Base: SNButton {
     
     var isValid: Binder<Bool> {
         Binder(base) { button, isValid in
-            button.isEnabled = isValid
+            button.isValid = isValid
         }
     }
 }

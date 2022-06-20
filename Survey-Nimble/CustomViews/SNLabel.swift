@@ -18,15 +18,15 @@ final class SNLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(textAlignment: NSTextAlignment = .left, fontSize: CGFloat) {
+    init(textAlignment: NSTextAlignment = .left, fontSize: CGFloat, color: UIColor = .white) {
         super.init(frame: .zero)
         self.textAlignment = textAlignment
         self.font = UIFont.neuzei(size: fontSize)
+        self.textColor = color
         configure()
     }
     
     private func configure() {
-        textColor = .white
-        lineBreakMode = .byTruncatingTail
+        lineBreakMode = .byWordWrapping
     }
 }

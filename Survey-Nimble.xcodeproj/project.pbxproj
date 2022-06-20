@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		28AF3C6C83FB9ADA00F53CE1 /* Pods_Survey_Nimble_Survey_NimbleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B46EDBFF6E0EABEC40B3CA4 /* Pods_Survey_Nimble_Survey_NimbleUITests.framework */; };
 		467FA09ED7861BE32F074F46 /* Pods_Survey_Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A496DCA056E9788C60D890E /* Pods_Survey_Nimble.framework */; };
 		8B392D35285DB449006042A7 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B392D34285DB449006042A7 /* UITextField+.swift */; };
 		8B67D371285C8378006B7AB0 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D370285C8378006B7AB0 /* SplashViewController.swift */; };
@@ -19,18 +18,36 @@
 		8B67D385285D6622006B7AB0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D384285D6622006B7AB0 /* LoginViewModel.swift */; };
 		8B67D387285D6632006B7AB0 /* LoginNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D386285D6632006B7AB0 /* LoginNavigator.swift */; };
 		8B67D389285D6CCE006B7AB0 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D388285D6CCE006B7AB0 /* UIView+.swift */; };
-		8B67D38B285D745B006B7AB0 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D38A285D745B006B7AB0 /* UIImageView+.swift */; };
 		8B67D390285D80B1006B7AB0 /* SNTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D38F285D80B1006B7AB0 /* SNTextField.swift */; };
 		8B67D392285D86C0006B7AB0 /* SNLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D391285D86C0006B7AB0 /* SNLabel.swift */; };
 		8B67D394285D86D4006B7AB0 /* SNButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D393285D86D4006B7AB0 /* SNButton.swift */; };
 		8B67D396285D8C24006B7AB0 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D395285D8C24006B7AB0 /* UIColor+.swift */; };
 		8B67D398285D8F2E006B7AB0 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D397285D8F2E006B7AB0 /* UIFont+.swift */; };
 		8BB414E1285E215F00BC790F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB414E0285E215F00BC790F /* BaseViewController.swift */; };
+		8BB414ED285F0B6000BC790F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB414EC285F0B6000BC790F /* APIService.swift */; };
+		8BB414EF285F0C6A00BC790F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB414EE285F0C6A00BC790F /* User.swift */; };
+		8BB414F1285F367000BC790F /* Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB414F0285F367000BC790F /* Reactive.swift */; };
+		8BB414F5285F41F400BC790F /* SNError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB414F4285F41F400BC790F /* SNError.swift */; };
+		8BB414F7285F484A00BC790F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB414F6285F484A00BC790F /* Environment.swift */; };
+		8BB414F9285F495100BC790F /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB414F8285F495100BC790F /* String+.swift */; };
+		8BB414FB285F5AC100BC790F /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB414FA285F5AC100BC790F /* BaseRequest.swift */; };
+		8BB414FE285F692700BC790F /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB414FD285F692700BC790F /* RequestType.swift */; };
+		8BB41500285F753800BC790F /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB414FF285F753800BC790F /* LoginRequest.swift */; };
+		8BB41502285F7C5C00BC790F /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB41501285F7C5C00BC790F /* LoginRepository.swift */; };
+		8BB41506285F7DB300BC790F /* GrantType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB41505285F7DB300BC790F /* GrantType.swift */; };
+		8BB41507285F9DE900BC790F /* Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB414F0285F367000BC790F /* Reactive.swift */; };
+		8BB41509285FA06700BC790F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB41508285FA06700BC790F /* HomeViewController.swift */; };
+		8BB4150B285FA07800BC790F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4150A285FA07800BC790F /* HomeViewModel.swift */; };
+		8BB4150D285FA0AB00BC790F /* HomeNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4150C285FA0AB00BC790F /* HomeNavigator.swift */; };
+		8BB4150F28603E1D00BC790F /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4150E28603E1D00BC790F /* ErrorResponse.swift */; };
+		8BB4151128604FB200BC790F /* KeychainAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4151028604FB200BC790F /* KeychainAccess.swift */; };
+		8BB4151728605A0200BC790F /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4151628605A0200BC790F /* LoginViewModelTests.swift */; };
+		8BB4151928605ECF00BC790F /* LoginNavigatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4151828605ECF00BC790F /* LoginNavigatorMock.swift */; };
+		8BB4151B28607A4400BC790F /* LoginRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4151A28607A4400BC790F /* LoginRepositoryMock.swift */; };
+		8BB4151D28608B8200BC790F /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4151C28608B8200BC790F /* TestError.swift */; };
 		8BFAD36A285C4BB6005FCC06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFAD369285C4BB6005FCC06 /* AppDelegate.swift */; };
 		8BFAD373285C4BB9005FCC06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BFAD372285C4BB9005FCC06 /* Assets.xcassets */; };
 		8BFAD376285C4BB9005FCC06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFAD374285C4BB9005FCC06 /* LaunchScreen.storyboard */; };
-		8BFAD381285C4BB9005FCC06 /* Survey_NimbleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFAD380285C4BB9005FCC06 /* Survey_NimbleTests.swift */; };
-		8BFAD38C285C4BB9005FCC06 /* Survey_NimbleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFAD38B285C4BB9005FCC06 /* Survey_NimbleUITests.swift */; };
 		8BFAD3AC285C65AB005FCC06 /* NeuzeitSLTStd-BookHeavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8BFAD3A9285C65AB005FCC06 /* NeuzeitSLTStd-BookHeavy.otf */; };
 		8BFAD3AE285C65AB005FCC06 /* NeuzeitSLTStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8BFAD3AA285C65AB005FCC06 /* NeuzeitSLTStd-Book.otf */; };
 		8BFAD3AF285C663E005FCC06 /* NeuzeitSLTStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8BFAD3AA285C65AB005FCC06 /* NeuzeitSLTStd-Book.otf */; };
@@ -50,13 +67,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		8BFAD37D285C4BB9005FCC06 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8BFAD35E285C4BB6005FCC06 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8BFAD365285C4BB6005FCC06;
-			remoteInfo = "Survey-Nimble";
-		};
-		8BFAD388285C4BB9005FCC06 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8BFAD35E285C4BB6005FCC06 /* Project object */;
 			proxyType = 1;
@@ -86,24 +96,39 @@
 		8B67D384285D6622006B7AB0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8B67D386285D6632006B7AB0 /* LoginNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigator.swift; sourceTree = "<group>"; };
 		8B67D388285D6CCE006B7AB0 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
-		8B67D38A285D745B006B7AB0 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		8B67D38F285D80B1006B7AB0 /* SNTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNTextField.swift; sourceTree = "<group>"; };
 		8B67D391285D86C0006B7AB0 /* SNLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNLabel.swift; sourceTree = "<group>"; };
 		8B67D393285D86D4006B7AB0 /* SNButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNButton.swift; sourceTree = "<group>"; };
 		8B67D395285D8C24006B7AB0 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		8B67D397285D8F2E006B7AB0 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		8BB414E0285E215F00BC790F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		8BB414EC285F0B6000BC790F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		8BB414EE285F0C6A00BC790F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8BB414F0285F367000BC790F /* Reactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reactive.swift; sourceTree = "<group>"; };
+		8BB414F4285F41F400BC790F /* SNError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNError.swift; sourceTree = "<group>"; };
+		8BB414F6285F484A00BC790F /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		8BB414F8285F495100BC790F /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		8BB414FA285F5AC100BC790F /* BaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
+		8BB414FD285F692700BC790F /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
+		8BB414FF285F753800BC790F /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		8BB41501285F7C5C00BC790F /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
+		8BB41505285F7DB300BC790F /* GrantType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrantType.swift; sourceTree = "<group>"; };
+		8BB41508285FA06700BC790F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8BB4150A285FA07800BC790F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		8BB4150C285FA0AB00BC790F /* HomeNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigator.swift; sourceTree = "<group>"; };
+		8BB4150E28603E1D00BC790F /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		8BB4151028604FB200BC790F /* KeychainAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainAccess.swift; sourceTree = "<group>"; };
+		8BB4151628605A0200BC790F /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
+		8BB4151828605ECF00BC790F /* LoginNavigatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigatorMock.swift; sourceTree = "<group>"; };
+		8BB4151A28607A4400BC790F /* LoginRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepositoryMock.swift; sourceTree = "<group>"; };
+		8BB4151C28608B8200BC790F /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		8BFAD366285C4BB6005FCC06 /* Survey-Nimble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Survey-Nimble.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BFAD369285C4BB6005FCC06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BFAD372285C4BB9005FCC06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BFAD375285C4BB9005FCC06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BFAD377285C4BB9005FCC06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BFAD37C285C4BB9005FCC06 /* Survey-NimbleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Survey-NimbleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BFAD380285C4BB9005FCC06 /* Survey_NimbleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey_NimbleTests.swift; sourceTree = "<group>"; };
 		8BFAD382285C4BB9005FCC06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8BFAD387285C4BB9005FCC06 /* Survey-NimbleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Survey-NimbleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BFAD38B285C4BB9005FCC06 /* Survey_NimbleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey_NimbleUITests.swift; sourceTree = "<group>"; };
-		8BFAD38D285C4BB9005FCC06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BFAD3A9285C65AB005FCC06 /* NeuzeitSLTStd-BookHeavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeuzeitSLTStd-BookHeavy.otf"; sourceTree = "<group>"; };
 		8BFAD3AA285C65AB005FCC06 /* NeuzeitSLTStd-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeuzeitSLTStd-Book.otf"; sourceTree = "<group>"; };
 		8BFAD3B4285C693C005FCC06 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -132,14 +157,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1BFD0D684453023E1A5B6E2 /* Pods_Survey_NimbleTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8BFAD384285C4BB9005FCC06 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				28AF3C6C83FB9ADA00F53CE1 /* Pods_Survey_Nimble_Survey_NimbleUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,12 +217,42 @@
 			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
+		8BB414EB285F0B5400BC790F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8BB414EC285F0B6000BC790F /* APIService.swift */,
+				8BB414FA285F5AC100BC790F /* BaseRequest.swift */,
+				8BB414FD285F692700BC790F /* RequestType.swift */,
+				8BB414FF285F753800BC790F /* LoginRequest.swift */,
+				8BB41501285F7C5C00BC790F /* LoginRepository.swift */,
+				8BB41505285F7DB300BC790F /* GrantType.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8BB414FC285F677C00BC790F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		8BB41512286058F500BC790F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8BB4151628605A0200BC790F /* LoginViewModelTests.swift */,
+				8BB4151828605ECF00BC790F /* LoginNavigatorMock.swift */,
+				8BB4151A28607A4400BC790F /* LoginRepositoryMock.swift */,
+				8BB4151C28608B8200BC790F /* TestError.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		8BFAD35D285C4BB6005FCC06 = {
 			isa = PBXGroup;
 			children = (
 				8BFAD368285C4BB6005FCC06 /* Survey-Nimble */,
 				8BFAD37F285C4BB9005FCC06 /* Survey-NimbleTests */,
-				8BFAD38A285C4BB9005FCC06 /* Survey-NimbleUITests */,
 				8BFAD367285C4BB6005FCC06 /* Products */,
 				0695CB88DBEB780FC7C32E3D /* Pods */,
 				8AFF360F0F7D7D869732B7B1 /* Frameworks */,
@@ -217,7 +264,6 @@
 			children = (
 				8BFAD366285C4BB6005FCC06 /* Survey-Nimble.app */,
 				8BFAD37C285C4BB9005FCC06 /* Survey-NimbleTests.xctest */,
-				8BFAD387285C4BB9005FCC06 /* Survey-NimbleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -241,19 +287,10 @@
 		8BFAD37F285C4BB9005FCC06 /* Survey-NimbleTests */ = {
 			isa = PBXGroup;
 			children = (
-				8BFAD380285C4BB9005FCC06 /* Survey_NimbleTests.swift */,
+				8BB41512286058F500BC790F /* Login */,
 				8BFAD382285C4BB9005FCC06 /* Info.plist */,
 			);
 			path = "Survey-NimbleTests";
-			sourceTree = "<group>";
-		};
-		8BFAD38A285C4BB9005FCC06 /* Survey-NimbleUITests */ = {
-			isa = PBXGroup;
-			children = (
-				8BFAD38B285C4BB9005FCC06 /* Survey_NimbleUITests.swift */,
-				8BFAD38D285C4BB9005FCC06 /* Info.plist */,
-			);
-			path = "Survey-NimbleUITests";
 			sourceTree = "<group>";
 		};
 		8BFAD399285C5DC7005FCC06 /* Common */ = {
@@ -277,6 +314,8 @@
 		8BFAD39B285C5DD8005FCC06 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				8BB414FC285F677C00BC790F /* Auth */,
+				8BB414EB285F0B5400BC790F /* Services */,
 				8BFAD3A3285C5F67005FCC06 /* Model */,
 			);
 			path = Data;
@@ -288,10 +327,10 @@
 				8BFAD3C1285C6DF2005FCC06 /* ObservableType+.swift */,
 				8B67D372285C8409006B7AB0 /* UIViewController+.swift */,
 				8B67D388285D6CCE006B7AB0 /* UIView+.swift */,
-				8B67D38A285D745B006B7AB0 /* UIImageView+.swift */,
 				8B67D395285D8C24006B7AB0 /* UIColor+.swift */,
 				8B67D397285D8F2E006B7AB0 /* UIFont+.swift */,
 				8B392D34285DB449006042A7 /* UITextField+.swift */,
+				8BB414F8285F495100BC790F /* String+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -340,6 +379,9 @@
 		8BFAD3A1285C5E9A005FCC06 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				8BB41508285FA06700BC790F /* HomeViewController.swift */,
+				8BB4150A285FA07800BC790F /* HomeViewModel.swift */,
+				8BB4150C285FA0AB00BC790F /* HomeNavigator.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -349,6 +391,8 @@
 			children = (
 				8BFAD3BA285C6A80005FCC06 /* Reactive */,
 				8BFAD3B4285C693C005FCC06 /* Constants.swift */,
+				8BB414F4285F41F400BC790F /* SNError.swift */,
+				8BB4151028604FB200BC790F /* KeychainAccess.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -356,6 +400,9 @@
 		8BFAD3A3285C5F67005FCC06 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8BB414EE285F0C6A00BC790F /* User.swift */,
+				8BB414F6285F484A00BC790F /* Environment.swift */,
+				8BB4150E28603E1D00BC790F /* ErrorResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -372,6 +419,7 @@
 		8BFAD3BA285C6A80005FCC06 /* Reactive */ = {
 			isa = PBXGroup;
 			children = (
+				8BB414F0285F367000BC790F /* Reactive.swift */,
 				8BFAD3BB285C6A8E005FCC06 /* ErrorTracker.swift */,
 				8BFAD3BE285C6A9F005FCC06 /* ActivityIndicator.swift */,
 			);
@@ -421,26 +469,6 @@
 			productReference = 8BFAD37C285C4BB9005FCC06 /* Survey-NimbleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8BFAD386285C4BB9005FCC06 /* Survey-NimbleUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8BFAD396285C4BB9005FCC06 /* Build configuration list for PBXNativeTarget "Survey-NimbleUITests" */;
-			buildPhases = (
-				4A691FE5B03FE78DF2335A84 /* [CP] Check Pods Manifest.lock */,
-				8BFAD383285C4BB9005FCC06 /* Sources */,
-				8BFAD384285C4BB9005FCC06 /* Frameworks */,
-				8BFAD385285C4BB9005FCC06 /* Resources */,
-				8A5A0C70C59224B7446B0EFD /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8BFAD389285C4BB9005FCC06 /* PBXTargetDependency */,
-			);
-			name = "Survey-NimbleUITests";
-			productName = "Survey-NimbleUITests";
-			productReference = 8BFAD387285C4BB9005FCC06 /* Survey-NimbleUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -454,10 +482,6 @@
 						CreatedOnToolsVersion = 12.5.1;
 					};
 					8BFAD37B285C4BB9005FCC06 = {
-						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = 8BFAD365285C4BB6005FCC06;
-					};
-					8BFAD386285C4BB9005FCC06 = {
 						CreatedOnToolsVersion = 12.5.1;
 						TestTargetID = 8BFAD365285C4BB6005FCC06;
 					};
@@ -478,7 +502,6 @@
 			targets = (
 				8BFAD365285C4BB6005FCC06 /* Survey-Nimble */,
 				8BFAD37B285C4BB9005FCC06 /* Survey-NimbleTests */,
-				8BFAD386285C4BB9005FCC06 /* Survey-NimbleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -501,13 +524,6 @@
 			files = (
 				8BFAD3AC285C65AB005FCC06 /* NeuzeitSLTStd-BookHeavy.otf in Resources */,
 				8BFAD3AE285C65AB005FCC06 /* NeuzeitSLTStd-Book.otf in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8BFAD385285C4BB9005FCC06 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,28 +569,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4A691FE5B03FE78DF2335A84 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Survey-Nimble-Survey-NimbleUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5DEF518343C241AAB80109A8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -614,23 +608,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8A5A0C70C59224B7446B0EFD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Survey-Nimble-Survey-NimbleUITests/Pods-Survey-Nimble-Survey-NimbleUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Survey-Nimble-Survey-NimbleUITests/Pods-Survey-Nimble-Survey-NimbleUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Survey-Nimble-Survey-NimbleUITests/Pods-Survey-Nimble-Survey-NimbleUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		8BFAD3C4285C71AC005FCC06 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -657,28 +634,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B67D383285D6618006B7AB0 /* LoginViewController.swift in Sources */,
+				8BB41506285F7DB300BC790F /* GrantType.swift in Sources */,
+				8BB41500285F753800BC790F /* LoginRequest.swift in Sources */,
+				8BB41509285FA06700BC790F /* HomeViewController.swift in Sources */,
 				8B67D390285D80B1006B7AB0 /* SNTextField.swift in Sources */,
 				8B67D394285D86D4006B7AB0 /* SNButton.swift in Sources */,
 				8B67D377285C8A5B006B7AB0 /* ViewModelBased.swift in Sources */,
 				8BFAD36A285C4BB6005FCC06 /* AppDelegate.swift in Sources */,
+				8BB414EF285F0C6A00BC790F /* User.swift in Sources */,
 				8B67D387285D6632006B7AB0 /* LoginNavigator.swift in Sources */,
-				8B67D38B285D745B006B7AB0 /* UIImageView+.swift in Sources */,
+				8BB414FE285F692700BC790F /* RequestType.swift in Sources */,
+				8BB41502285F7C5C00BC790F /* LoginRepository.swift in Sources */,
+				8BB4150D285FA0AB00BC790F /* HomeNavigator.swift in Sources */,
 				8BFAD3C2285C6DF2005FCC06 /* ObservableType+.swift in Sources */,
+				8BB4150F28603E1D00BC790F /* ErrorResponse.swift in Sources */,
 				8B67D392285D86C0006B7AB0 /* SNLabel.swift in Sources */,
 				8B67D396285D8C24006B7AB0 /* UIColor+.swift in Sources */,
 				8BB414E1285E215F00BC790F /* BaseViewController.swift in Sources */,
+				8BB414F1285F367000BC790F /* Reactive.swift in Sources */,
 				8B67D398285D8F2E006B7AB0 /* UIFont+.swift in Sources */,
+				8BB4150B285FA07800BC790F /* HomeViewModel.swift in Sources */,
 				8B67D373285C8409006B7AB0 /* UIViewController+.swift in Sources */,
+				8BB4151128604FB200BC790F /* KeychainAccess.swift in Sources */,
 				8B67D381285D2D77006B7AB0 /* SplashNavigator.swift in Sources */,
 				8B67D375285C8469006B7AB0 /* SplashViewModel.swift in Sources */,
+				8BB414FB285F5AC100BC790F /* BaseRequest.swift in Sources */,
 				8BFAD3BF285C6A9F005FCC06 /* ActivityIndicator.swift in Sources */,
+				8BB414F7285F484A00BC790F /* Environment.swift in Sources */,
 				8B67D389285D6CCE006B7AB0 /* UIView+.swift in Sources */,
 				8B67D385285D6622006B7AB0 /* LoginViewModel.swift in Sources */,
 				8BFAD3B5285C693C005FCC06 /* Constants.swift in Sources */,
 				8BFAD3B8285C6A14005FCC06 /* ViewModelType.swift in Sources */,
 				8B67D371285C8378006B7AB0 /* SplashViewController.swift in Sources */,
+				8BB414F5285F41F400BC790F /* SNError.swift in Sources */,
+				8BB414ED285F0B6000BC790F /* APIService.swift in Sources */,
 				8BFAD3BC285C6A8E005FCC06 /* ErrorTracker.swift in Sources */,
 				8B392D35285DB449006042A7 /* UITextField+.swift in Sources */,
+				8BB414F9285F495100BC790F /* String+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,20 +678,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BFAD381285C4BB9005FCC06 /* Survey_NimbleTests.swift in Sources */,
 				8BFAD3C3285C6DF2005FCC06 /* ObservableType+.swift in Sources */,
+				8BB4151B28607A4400BC790F /* LoginRepositoryMock.swift in Sources */,
 				8BFAD3C0285C6A9F005FCC06 /* ActivityIndicator.swift in Sources */,
 				8BFAD3B6285C693C005FCC06 /* Constants.swift in Sources */,
+				8BB4151D28608B8200BC790F /* TestError.swift in Sources */,
 				8BFAD3B9285C6A14005FCC06 /* ViewModelType.swift in Sources */,
+				8BB4151728605A0200BC790F /* LoginViewModelTests.swift in Sources */,
+				8BB41507285F9DE900BC790F /* Reactive.swift in Sources */,
 				8BFAD3BD285C6A8E005FCC06 /* ErrorTracker.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8BFAD383285C4BB9005FCC06 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8BFAD38C285C4BB9005FCC06 /* Survey_NimbleUITests.swift in Sources */,
+				8BB4151928605ECF00BC790F /* LoginNavigatorMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,11 +698,6 @@
 			isa = PBXTargetDependency;
 			target = 8BFAD365285C4BB6005FCC06 /* Survey-Nimble */;
 			targetProxy = 8BFAD37D285C4BB9005FCC06 /* PBXContainerItemProxy */;
-		};
-		8BFAD389285C4BB9005FCC06 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8BFAD365285C4BB6005FCC06 /* Survey-Nimble */;
-			targetProxy = 8BFAD388285C4BB9005FCC06 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -838,26 +821,6 @@
 			};
 			name = "Debug STG";
 		};
-		8B67D37B285D2BEE006B7AB0 /* Debug STG */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0DCB4982D3705AC46543EB0A /* Pods-Survey-Nimble-Survey-NimbleUITests.debug stg.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Survey-NimbleUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "khanhnguyen.Survey-NimbleUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Survey-Nimble";
-			};
-			name = "Debug STG";
-		};
 		8B67D37C285D2BF9006B7AB0 /* Release STG */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -957,26 +920,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Survey-Nimble.app/Survey-Nimble";
-			};
-			name = "Release STG";
-		};
-		8B67D37F285D2BF9006B7AB0 /* Release STG */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 12C8D4868B207C7A2D3C64C5 /* Pods-Survey-Nimble-Survey-NimbleUITests.release stg.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Survey-NimbleUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "khanhnguyen.Survey-NimbleUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Survey-Nimble";
 			};
 			name = "Release STG";
 		};
@@ -1190,46 +1133,6 @@
 			};
 			name = Release;
 		};
-		8BFAD397285C4BB9005FCC06 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A587CAAA62FCBCF18DBF5B5A /* Pods-Survey-Nimble-Survey-NimbleUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Survey-NimbleUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "khanhnguyen.Survey-NimbleUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Survey-Nimble";
-			};
-			name = Debug;
-		};
-		8BFAD398285C4BB9005FCC06 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A2DC262A34632BF739E5FDB /* Pods-Survey-Nimble-Survey-NimbleUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Survey-NimbleUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "khanhnguyen.Survey-NimbleUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Survey-Nimble";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1262,17 +1165,6 @@
 				8B67D37A285D2BEE006B7AB0 /* Debug STG */,
 				8BFAD395285C4BB9005FCC06 /* Release */,
 				8B67D37E285D2BF9006B7AB0 /* Release STG */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8BFAD396285C4BB9005FCC06 /* Build configuration list for PBXNativeTarget "Survey-NimbleUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8BFAD397285C4BB9005FCC06 /* Debug */,
-				8B67D37B285D2BEE006B7AB0 /* Debug STG */,
-				8BFAD398285C4BB9005FCC06 /* Release */,
-				8B67D37F285D2BF9006B7AB0 /* Release STG */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

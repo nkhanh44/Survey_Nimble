@@ -10,6 +10,8 @@ target 'Survey-Nimble' do
     pod 'RxCocoa', '6.5.0'
     pod 'SwiftLint'
     pod 'SnapKit', '~> 5.6.0'
+    pod 'Japx'
+    pod 'KeychainAccess'
 
   target 'Survey-NimbleTests' do
     inherit! :search_paths

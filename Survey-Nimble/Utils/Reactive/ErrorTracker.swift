@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 
 open class ErrorTracker: SharedSequenceConvertibleType {
+    
     public typealias SharingStrategy = DriverSharingStrategy
     private let _subject = PublishSubject<Error>()
 

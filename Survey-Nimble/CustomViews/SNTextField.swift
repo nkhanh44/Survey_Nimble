@@ -28,6 +28,17 @@ final class SNTextField: UITextField {
         }
     }
     
+    var isValid: Bool = true {
+        didSet {
+            if isValid {
+                layer.borderWidth = 0
+            } else {
+                layer.borderColor = UIColor.red.cgColor
+                layer.borderWidth = 2
+            }
+        }
+    }
+    
     private let disposeBag = DisposeBag()
     private let forgotPasswordAction: () -> Void  = {}
     private let forgotPasswordButton = UIButton()
@@ -49,9 +60,9 @@ final class SNTextField: UITextField {
         tintColor = .white
         font = UIFont.neuzei(size: 17)
         backgroundColor = .white.withAlphaComponent(0.18)
-        
         autocorrectionType = .no
         returnKeyType = .go
+        
         paddingLeft = 12
         paddingRight = 12
     }

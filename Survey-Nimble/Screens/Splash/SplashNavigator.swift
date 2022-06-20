@@ -18,12 +18,16 @@ struct SplashNavigator: SplashNavigatorType {
     let navigationController: UINavigationController?
     
     func toHomeScreen() {
-        // navigate to Home Screen
+        let homeVC = HomeViewController()
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        appDelegate.window?.rootViewController = homeVC
     }
     
     func toLoginScreen() {
         let loginVC = LoginViewController()
+        let navigationController = UINavigationController(rootViewController: loginVC)
+        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        appDelegate.window?.rootViewController = loginVC
+        appDelegate.window?.rootViewController = navigationController
     }
 }

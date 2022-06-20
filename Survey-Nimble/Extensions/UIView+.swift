@@ -33,27 +33,4 @@ extension UIView {
             childLayer.removeFromSuperlayer()
         }
     }
-    
-    func addBlurEffect(withtag: Int? = nil,
-                       effect: UIBlurEffect.Style = .regular,
-                       alpha: CGFloat = 0.0) {
-        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: effect))
-        blurEffectView.frame = bounds
-        blurEffectView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        blurEffectView.alpha = alpha
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        blurEffectView.fadeInEffect(effect, withDuration: 1.0)
-        
-        if let tag = withtag {
-            blurEffectView.tag = tag
-        }
-        
-        addSubview(blurEffectView)
-    }
-    
-    func removeBlurEffect(withtag: Int? = nil) {
-        if let tag = withtag {
-            viewWithTag(tag)?.removeFromSuperview()
-        }
-    }
 }
