@@ -65,7 +65,6 @@ final class SNTextField: UITextField {
         
         paddingLeft = 12
         paddingRight = 12
-        
     }
     
     private func displayTextFieldStyle() {

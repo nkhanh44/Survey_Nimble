@@ -12,6 +12,9 @@ enum Constants {
     enum Localization {
         
         static let login = "Log in"
+        static let emailPlaceholder = "Email"
+        static let passwordPlaceholder = "Password"
+        static let forgot = "Forgot?"
     }
     
     enum Keys {

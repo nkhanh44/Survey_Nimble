@@ -8,7 +8,7 @@
 import Foundation
 import Japx
 
-struct User: JapxCodable, Equatable {
+struct User: JapxCodable {
     
     var id: String
     let type: String

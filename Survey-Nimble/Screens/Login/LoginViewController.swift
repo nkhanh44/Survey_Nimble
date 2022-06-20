@@ -10,6 +10,25 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
+private enum Numbers {
+    
+    static let stackViewPadding: CGFloat = 24
+    static let stackViewSpacing: CGFloat = 20
+    
+    static let emailTextFieldHeight: CGFloat = 56
+    
+    static let errorLabelHeight: CGFloat = 10
+    static let errorLabelPadding: CGFloat = 5
+    
+    static let translateTrasformY: CGFloat = -(UIScreen.main.bounds.height / 2.5)
+    static let scaledTrasform: (CGFloat, CGFloat) = (0.75, 0.8)
+    
+    static let animateTime: DispatchTime = .now() + 1.5
+    static let animateDuration: TimeInterval = 1.0
+    
+    static let effectViewAlpha: CGFloat = 0.5
+}
+
 final class LoginViewController: BaseViewController, ViewModelBased {
 
     var viewModel: LoginViewModel!
@@ -87,32 +106,34 @@ extension LoginViewController {
         
         stackView.snp.makeConstraints {
             $0.center.equalTo(backgroundImageView)
-            $0.leading.equalTo(backgroundImageView.snp.leading).offset(24)
-            $0.trailing.equalTo(backgroundImageView.snp.trailing).offset(-24)
+            $0.leading.equalTo(backgroundImageView.snp.leading).offset(Numbers.stackViewPadding)
+            $0.trailing.equalTo(backgroundImageView.snp.trailing).offset(-Numbers.stackViewPadding)
         }
         
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
         
         emailTextField.delegate = self
-        emailTextField.placeholderText = "Email"
+        emailTextField.placeholderText = Constants.Localization.emailPlaceholder
         emailTextField.keyboardType = .emailAddress
         emailTextField.snp.makeConstraints {
-            $0.height.equalTo(56)
+            $0.height.equalTo(Numbers.emailTextFieldHeight)
         }
         
         passwordTextField.delegate = self
-        passwordTextField.placeholderText = "Password"
+        passwordTextField.placeholderText = Constants.Localization.passwordPlaceholder
         passwordTextField.type = .password
         
         emailTextField.addSubview(errorEmailLabel)
         
+        let errorPadding = Numbers.errorLabelPadding
+        
         errorEmailLabel.text = SNError.invalidEmail.errorDescription
         errorEmailLabel.isHidden = true
         errorEmailLabel.snp.makeConstraints {
-            $0.top.equalTo(emailTextField.snp.bottom).inset(-5)
-            $0.leading.equalTo(emailTextField.snp.leading).inset(5)
-            $0.height.equalTo(10)
+            $0.top.equalTo(emailTextField.snp.bottom).inset(-errorPadding)
+            $0.leading.equalTo(emailTextField.snp.leading).inset(errorPadding)
+            $0.height.equalTo(Numbers.errorLabelHeight)
         }
         
         passwordTextField.addSubview(errorPasswordLabel)
@@ -120,9 +141,9 @@ extension LoginViewController {
         errorPasswordLabel.text = SNError.invalidPassword.errorDescription
         errorPasswordLabel.isHidden = true
         errorPasswordLabel.snp.makeConstraints {
-            $0.top.equalTo(passwordTextField.snp.bottom).inset(-5)
-            $0.leading.equalTo(passwordTextField.snp.leading).inset(5)
-            $0.height.equalTo(10)
+            $0.top.equalTo(passwordTextField.snp.bottom).inset(-errorPadding)
+            $0.leading.equalTo(passwordTextField.snp.leading).inset(errorPadding)
+            $0.height.equalTo(Numbers.errorLabelHeight)
         }
         
         loginButton.isValid = false
@@ -131,15 +152,16 @@ extension LoginViewController {
     }
     
     private func animateUI() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            UIView.animate(withDuration: 1.0) {
+        DispatchQueue.main.asyncAfter(deadline: Numbers.animateTime) {
+            UIView.animate(withDuration: Numbers.animateDuration) {
                 let originalTransform = self.logoImageView.transform
-                let scaledTransform = originalTransform.scaledBy(x: 0.75, y: 0.8)
+                let scaledTransform = originalTransform.scaledBy(x: Numbers.scaledTrasform.0,
+                                                                 y: Numbers.scaledTrasform.1)
                 let scaledAndTranslatedTransform = scaledTransform.translatedBy(x: 0,
-                                                                                y: -(self.view.bounds.height / 2.5))
+                                                                                y: Numbers.translateTrasformY)
                 
                 self.logoImageView.transform = scaledAndTranslatedTransform
-                self.visualEffectView.alpha = 0.5
+                self.visualEffectView.alpha = Numbers.effectViewAlpha
                 self.backgroundImageView.setGradient()
             } completion: { _ in
                 self.hideLoginComponents(with: false)
@@ -156,7 +178,7 @@ extension LoginViewController {
     private func configureStackView() {
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
-        stackView.spacing = 20
+        stackView.spacing = Numbers.stackViewSpacing
         
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(passwordTextField)

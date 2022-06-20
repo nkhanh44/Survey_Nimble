@@ -30,13 +30,4 @@ class BaseRequest: NSObject {
         self.requestType = requestType
         self.body = body
     }
-    
-//    var encoding: ParameterEncoding {
-//        switch requestType {
-//        case .get:
-//            return URLEncoding.default
-//        default:
-//            return JSONEncoding.default
-//        }
-//    }
 }

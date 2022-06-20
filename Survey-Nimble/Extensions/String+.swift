@@ -14,6 +14,7 @@ extension String {
         return validate(withRegex: regexString)
     }
     
+    // I assumsed this validation for password :smiley:
     var isPasswordMustLeast8Letters: Bool {
         count >= 8
     }

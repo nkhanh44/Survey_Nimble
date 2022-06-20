@@ -8,6 +8,11 @@
 import Foundation
 import RxSwift
 
+protocol LoginRepositoryType {
+    
+    func login(input: LoginRequest) -> Observable<User>
+}
+
 final class LoginRepository: LoginRepositoryType {
     
     private var api: APIService!
@@ -19,9 +24,4 @@ final class LoginRepository: LoginRepositoryType {
     func login(input: LoginRequest) -> Observable<User> {
         return api.request(input).map { $0 }
     }
-}
-
-protocol LoginRepositoryType {
-    
-    func login(input: LoginRequest) -> Observable<User>
 }

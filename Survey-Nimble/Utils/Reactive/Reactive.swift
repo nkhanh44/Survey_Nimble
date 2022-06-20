@@ -9,12 +9,14 @@ import RxCocoa
 import RxSwift
 
 extension Reactive where Base: UITextField {
+    
     func textWithControlEvents(_ event: UIControl.Event) -> Observable<String> {
         return base.rx.controlEvent(event).withLatestFrom(base.rx.text.orEmpty)
     }
 }
 
 extension Reactive where Base: UIViewController {
+    
     var error: Binder<Error> {
         Binder(base) { viewController, error in            
             viewController.showAlert(with: error)

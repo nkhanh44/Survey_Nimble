@@ -17,6 +17,6 @@ struct HomeNavigator: HomeNavigatorType {
     let navigationController: UINavigationController?
     
     func toSurveyDetail() {
-        // navigate to Detail Survey after login successfully
+        // navigate to Detail Survey
     }
 }
