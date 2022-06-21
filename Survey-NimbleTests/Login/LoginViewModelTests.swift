@@ -189,7 +189,6 @@ extension LoginViewModelTests {
     
     func test_login_successfully() {
         // arrange
-        
         scheduler.createColdObservable([.next(0, "nkhanh44@nimblehq.co")])
             .bind(to: emailTrigger)
             .disposed(by: disposeBag)

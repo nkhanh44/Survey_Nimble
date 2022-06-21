@@ -17,6 +17,7 @@ struct HomeNavigator: HomeNavigatorType {
     let navigationController: UINavigationController?
     
     func toSurveyDetail() {
-        // navigate to Detail Survey
+        let detailViewController = DetailSurveyViewController()
+        navigationController?.pushViewController(detailViewController, animated: false)
     }
 }

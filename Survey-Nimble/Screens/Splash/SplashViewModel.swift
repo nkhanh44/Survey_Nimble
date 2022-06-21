@@ -18,7 +18,13 @@ struct SplashViewModel: ViewModel {
         
         input.loadTrigger
             .delay(RxTimeInterval.seconds(2))
-            .drive(onNext: navigator.toLoginScreen)
+            .drive(onNext: {
+                if KeychainAccess.userInfo != nil {
+                    navigator.toHomeScreen()
+                } else {
+                    navigator.toLoginScreen()
+                }
+            })
             .disposed(by: disposeBag)
                 
         return Output(error: errorTracker.asDriver())

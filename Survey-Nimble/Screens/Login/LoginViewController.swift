@@ -94,6 +94,7 @@ final class LoginViewController: BaseViewController, ViewModelBased {
 extension LoginViewController {
     
     private func configure() {
+        KeychainAccess.remove()
         let navigator = LoginNavigator(navigationController: navigationController)
         let repository = LoginRepository(api: APIService.shared)
         viewModel = LoginViewModel(navigator: navigator,

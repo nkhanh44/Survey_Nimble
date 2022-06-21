@@ -10,7 +10,7 @@ import Japx
 
 struct User: JapxCodable {
     
-    var id: String
+    let id: String
     let type: String
     let accessToken: String
     let tokenType: String

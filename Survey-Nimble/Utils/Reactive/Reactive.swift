@@ -18,7 +18,7 @@ extension Reactive where Base: UITextField {
 extension Reactive where Base: UIViewController {
     
     var error: Binder<Error> {
-        Binder(base) { viewController, error in            
+        Binder(base) { viewController, error in
             viewController.showAlert(with: error)
         }
     }

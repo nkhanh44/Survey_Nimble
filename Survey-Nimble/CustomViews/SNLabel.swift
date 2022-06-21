@@ -18,10 +18,13 @@ final class SNLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(textAlignment: NSTextAlignment = .left, fontSize: CGFloat, color: UIColor = .white) {
+    init(textAlignment: NSTextAlignment = .left,
+         fontSize: CGFloat,
+         style: UIFont.NeuzeiStyle = .regular,
+         color: UIColor = .white) {
         super.init(frame: .zero)
         self.textAlignment = textAlignment
-        self.font = UIFont.neuzei(size: fontSize)
+        self.font = UIFont.neuzei(style: style, size: fontSize)
         self.textColor = color
         configure()
     }

@@ -19,6 +19,8 @@ final class LoginRequest: BaseRequest {
         ]
         print("body request:", body)
         
-        super.init(url: "https://survey-api.nimblehq.co/api/v1/oauth/token", requestType: .POST, body: body)
+        super.init(url: Constants.APIs.getAPIURL(enviroment: BuildConfiguration.shared.environment) + "oauth/token",
+                   requestType: .POST,
+                   body: body)
     }
 }
