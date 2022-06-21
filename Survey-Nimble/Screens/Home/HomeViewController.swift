@@ -33,6 +33,7 @@ final class HomeViewController: UIViewController, ViewModelBased {
         configureCollectionView()
         configure()
         setupView()
+        configureComponents()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -139,15 +140,19 @@ extension HomeViewController {
         }
         
         pageControl.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(20)
-            $0.trailing.greaterThanOrEqualToSuperview().inset(20)
+            $0.leading.equalToSuperview().offset(-13)
             $0.bottom.equalToSuperview().inset(200)
             $0.height.equalTo(10)
         }
+    }
+    
+    private func configureComponents() {
+        pageControl.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
         pageControl.addTarget(self, action: #selector(didPageControlChange), for: .valueChanged)
         
         todayLabel.text = Constants.Localization.today
-        dateLabel.text = "22, june, 2020"
+        
+        dateLabel.text = Date().convertToSNDateFormat()
         
         avatarImageView.layer.cornerRadius = 18
         avatarImageView.clipsToBounds = true
@@ -173,9 +178,7 @@ extension HomeViewController {
 extension HomeViewController {
     
     private var surveyListBinder: Binder<[Survey]> {
-        return Binder(self) { viewController, list in
-            print("list: ", list.map { $0.title })
-            print("list count: ", list.count)
+        Binder(self) { viewController, list in
             viewController.pageControl.numberOfPages = list.count
             viewController.surveyList = list
             viewController.collectionView.reloadData()
