@@ -1,6 +1,6 @@
 # Survey_Nimble
-Target: iOS 10+
-Xcode: 12.5.1
-Swift: 5
-Pod: 1.10.1
-Structure: MVVM + RxSwift + RxCocoa
+Target: iOS 10+ <br>
+Xcode: 12.5.1 <br>
+Swift: 5 <br>
+Pod: 1.10.1 <br>
+Structure: MVVM + RxSwift + RxCocoa <br>
