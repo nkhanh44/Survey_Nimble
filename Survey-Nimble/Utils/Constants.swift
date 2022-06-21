@@ -15,11 +15,28 @@ enum Constants {
         static let emailPlaceholder = "Email"
         static let passwordPlaceholder = "Password"
         static let forgot = "Forgot?"
+        static let today = "Today"
+        
+        static let reuseIDSurveyCell = "SurveyCell"
     }
     
     enum Keys {
         
         static let clientId = "ofzl-2h5ympKa0WqqTzqlVJUiRsxmXQmt5tkgrlWnOE"
         static let clientSecret = "lMQb900L-mTeU-FVTCwyhjsfBwRCxwwbCitPob96cuU"
+    }
+    
+    enum APIs {
+        
+        static let apiPathVersion = "/api/v1/"
+        
+        static func getAPIURL(enviroment env: Environment) -> String {
+            switch env {
+            case .development:
+                return "https://survey-api.nimblehq.co" + apiPathVersion
+            case .staging:
+                return "https://nimble-survey-web-staging.herokuapp.com" + apiPathVersion
+            }
+        }
     }
 }
