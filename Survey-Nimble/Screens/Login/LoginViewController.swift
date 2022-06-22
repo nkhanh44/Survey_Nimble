@@ -10,6 +10,8 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
+// MARK: Number constants
+
 private enum Numbers {
     
     static let stackViewPadding: CGFloat = 24
@@ -29,6 +31,8 @@ private enum Numbers {
     static let effectViewAlpha: CGFloat = 0.5
 }
 
+// MARK: Main
+
 final class LoginViewController: BaseViewController, ViewModelBased {
 
     var viewModel: LoginViewModel!
@@ -36,7 +40,7 @@ final class LoginViewController: BaseViewController, ViewModelBased {
     
     private let emailTextField = SNTextField()
     private let passwordTextField = SNTextField()
-    private let loginButton = SNButton(backgroundColor: .white, title: Constants.Localization.login)
+    private let loginButton = SNButton(backgroundColor: .white, title: Constants.Strings.login)
     private let stackView = UIStackView()
     private let errorEmailLabel = SNLabel(fontSize: 9, color: .red)
     private let errorPasswordLabel = SNLabel(fontSize: 9, color: .red)
@@ -54,10 +58,15 @@ final class LoginViewController: BaseViewController, ViewModelBased {
     }
     
     func bindViewModel() {
-        let input = LoginViewModel.Input(emailTrigger: emailTextField.rx.textWithControlEvents(.editingChanged),
-                                         passwordTrigger: passwordTextField.rx.textWithControlEvents(.editingChanged),
-                                         loginTrigger: loginButton.rx.tap.asObservable(),
+        let input = LoginViewModel.Input(emailTrigger: emailTextField.rx
+                                            .textWithControlEvents(.editingChanged)
+                                            .asDriverOnErrorJustComplete(),
+                                         passwordTrigger: passwordTextField.rx
+                                            .textWithControlEvents(.editingChanged)
+                                            .asDriverOnErrorJustComplete(),
+                                         loginTrigger: loginButton.rx.tap.asDriverOnErrorJustComplete(),
                                          forgotPasswordTrigger: forgotPasswordTrigger.asDriverOnErrorJustComplete())
+        
         let output = viewModel.transform(input, disposeBag: disposeBag)
         
         output.enabledLoginButton
@@ -118,14 +127,14 @@ extension LoginViewController {
         view.addSubview(passwordTextField)
         
         emailTextField.delegate = self
-        emailTextField.placeholderText = Constants.Localization.emailPlaceholder
+        emailTextField.placeholderText = Constants.Strings.emailPlaceholder
         emailTextField.keyboardType = .emailAddress
         emailTextField.snp.makeConstraints {
             $0.height.equalTo(Numbers.emailTextFieldHeight)
         }
         
         passwordTextField.delegate = self
-        passwordTextField.placeholderText = Constants.Localization.passwordPlaceholder
+        passwordTextField.placeholderText = Constants.Strings.passwordPlaceholder
         passwordTextField.type = .password
         passwordTextField.forgotPasswordAction = { [weak self]  in
             self?.forgotPasswordTrigger.onNext(())

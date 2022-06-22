@@ -10,9 +10,11 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
+// MARK: Number Constant
 private enum Numbers {
     
-    static let stackViewPadding: CGFloat = 24
+    static let itemPadding: CGFloat = 24
+    
     static let stackViewSpacing: CGFloat = 20
     
     static let emailTextFieldHeight: CGFloat = 56
@@ -20,29 +22,31 @@ private enum Numbers {
     static let errorLabelHeight: CGFloat = 10
     static let errorLabelPadding: CGFloat = 5
     
+    static let popUpHeight: CGFloat = 116
+    
     static let translateTransformY: CGFloat = -(UIScreen.main.bounds.height / 2.5)
     static let scaledTrasform: (CGFloat, CGFloat) = (0.75, 0.8)
     static let desTranslateTransformY: CGFloat = -(UIScreen.main.bounds.height / 3)
     
-    static let animateTime: DispatchTime = .now() + 1.5
-    static let animateDuration: TimeInterval = 1.0
-    
     static let effectViewAlpha: CGFloat = 0.5
 }
 
+// MARK: Main
 final class ForgotPasswordViewController: BaseViewController, ViewModelBased {
 
     var viewModel: ForgotPasswordViewModel!
     private var disposeBag: DisposeBag! = DisposeBag()
     
     private let emailTextField = SNTextField()
-    private let resetButton = SNButton(backgroundColor: .white, title: "Reset")
+    private let resetButton = SNButton(backgroundColor: .white, title: Constants.Strings.reset)
     private let backButton = SNCircleButton(backgroundColor: .clear, image: UIImage(named: "ic_back") ?? UIImage())
     private let stackView = UIStackView()
     private let errorEmailLabel = SNLabel(fontSize: 9, color: .red)
     private let descriptionLabel = SNLabel(textAlignment: .center,
                                            fontSize: 17,
                                            color: .white.withAlphaComponent(0.7))
+    private let popUpView = SNPopUpView(title: Constants.Strings.forgotPopUpTitle,
+                                        message: Constants.Strings.forgotPopupMessage)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +56,7 @@ final class ForgotPasswordViewController: BaseViewController, ViewModelBased {
         setupView()
         configureStackView()
         setUpLogo()
+        setUpPopup()
     }
     
     func bindViewModel() {
@@ -76,7 +81,10 @@ final class ForgotPasswordViewController: BaseViewController, ViewModelBased {
             .disposed(by: disposeBag)
         
         output.isResetSuccessfully
-            .drive()
+            .drive(onNext: { [weak self] isSuccessful in
+                self?.resetButton.isValid = !isSuccessful
+                self?.popUpView.showPopup()
+            })
             .disposed(by: disposeBag)
         
         output.error
@@ -118,12 +126,12 @@ extension ForgotPasswordViewController {
         
         stackView.snp.makeConstraints {
             $0.center.equalTo(backgroundImageView)
-            $0.leading.equalTo(backgroundImageView.snp.leading).offset(Numbers.stackViewPadding)
-            $0.trailing.equalTo(backgroundImageView.snp.trailing).offset(-Numbers.stackViewPadding)
+            $0.leading.equalTo(backgroundImageView.snp.leading).offset(Numbers.itemPadding)
+            $0.trailing.equalTo(backgroundImageView.snp.trailing).offset(-Numbers.itemPadding)
         }
         
         emailTextField.delegate = self
-        emailTextField.placeholderText = Constants.Localization.emailPlaceholder
+        emailTextField.placeholderText = Constants.Strings.emailPlaceholder
         emailTextField.keyboardType = .emailAddress
         emailTextField.snp.makeConstraints {
             $0.height.equalTo(Numbers.emailTextFieldHeight)
@@ -141,12 +149,12 @@ extension ForgotPasswordViewController {
             $0.height.equalTo(Numbers.errorLabelHeight)
         }
         
-        descriptionLabel.text = Constants.Localization.forgotPasswordDescription
+        descriptionLabel.text = Constants.Strings.forgotPasswordDescription
         descriptionLabel.numberOfLines = 0
         descriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(logoImageView.snp.bottom).offset(24)
-            $0.leading.equalToSuperview().offset(24)
-            $0.trailing.equalToSuperview().offset(-24)
+            $0.top.equalTo(logoImageView.snp.bottom).offset(Numbers.itemPadding)
+            $0.leading.equalToSuperview().offset(Numbers.itemPadding)
+            $0.trailing.equalToSuperview().offset(-Numbers.itemPadding)
         }
         
         resetButton.isValid = false
@@ -178,6 +186,12 @@ extension ForgotPasswordViewController {
             
             self.descriptionLabel.transform = newTranslatedTransform
         }
+    }
+    
+    private func setUpPopup() {
+        view.addSubview(popUpView)
+        view.bringSubviewToFront(popUpView)
+        popUpView.frame = CGRect(x: 0, y: -Numbers.popUpHeight, width: view.bounds.width, height: Numbers.popUpHeight)
     }
 }
 

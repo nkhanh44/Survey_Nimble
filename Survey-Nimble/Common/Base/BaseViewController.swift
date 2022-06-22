@@ -13,6 +13,10 @@ class BaseViewController: UIViewController {
     let backgroundImageView = UIImageView(image: UIImage(named: "background_image"))
     let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()

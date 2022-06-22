@@ -9,23 +9,37 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+// MARK: Number constants
+
+private enum Numbers {
+    static let horizontalPadding: CGFloat = 20
+    static let avatarSize: CGFloat = 36
+    static let buttonSize: CGFloat = 56
+}
+
+// MARK: Main
+
 final class HomeViewController: UIViewController, ViewModelBased {
 
     var viewModel: HomeViewModel!
     private var disposeBag: DisposeBag! = DisposeBag()
     
-    private var collectionView: UICollectionView!
     private let nextButton = SNCircleButton(image: UIImage(named: "ic_next") ?? UIImage())
     private let todayLabel = SNLabel(fontSize: 34, style: .bold, color: .white)
     private let dateLabel = SNLabel(fontSize: 13, color: .white)
     private let avatarImageView = UIImageView(image: UIImage(named: "ic_avatar_placeholder") ?? UIImage())
     private let pageControl = UIPageControl()
+    private var collectionView: UICollectionView!
     private var page = 1
     private var hasMoreSurvey = false
     private var surveyList = [Survey]()
     
     private var loadTrigger = PublishSubject<Int>()
     private var toDetailTrigger = PublishSubject<Void>()
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,7 +107,7 @@ extension HomeViewController {
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(SurveyCollectionViewCell.self,
-                                forCellWithReuseIdentifier: Constants.Localization.reuseIDSurveyCell)
+                                forCellWithReuseIdentifier: Constants.Strings.reuseIDSurveyCell)
         
         view.addSubview(collectionView)
         view.sendSubviewToBack(collectionView)
@@ -116,27 +130,27 @@ extension HomeViewController {
         view.bringSubviewToFront(avatarImageView)
         
         nextButton.snp.makeConstraints {
-            $0.trailing.equalTo(view.snp.trailing).inset(20)
+            $0.trailing.equalTo(view.snp.trailing).inset(Numbers.horizontalPadding)
             $0.bottom.equalTo(view.snp.bottom).inset(54)
             $0.width.height.equalTo(56)
         }
         
         dateLabel.snp.makeConstraints {
             $0.top.equalTo(view.snp.top).inset(54)
-            $0.leading.equalTo(view.snp.leading).inset(20)
+            $0.leading.equalTo(view.snp.leading).inset(Numbers.horizontalPadding)
             $0.height.equalTo(18)
         }
         
         todayLabel.snp.makeConstraints {
             $0.top.equalTo(dateLabel.snp.bottom).offset(5)
-            $0.leading.equalTo(view.snp.leading).inset(20)
+            $0.leading.equalTo(view.snp.leading).inset(Numbers.horizontalPadding)
             $0.height.equalTo(41)
         }
         
         avatarImageView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(79)
-            $0.trailing.equalToSuperview().inset(20)
-            $0.width.height.equalTo(36)
+            $0.trailing.equalToSuperview().inset(Numbers.horizontalPadding)
+            $0.width.height.equalTo(Numbers.avatarSize)
         }
         
         pageControl.snp.makeConstraints {
@@ -150,7 +164,7 @@ extension HomeViewController {
         pageControl.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
         pageControl.addTarget(self, action: #selector(didPageControlChange), for: .valueChanged)
         
-        todayLabel.text = Constants.Localization.today
+        todayLabel.text = Constants.Strings.today
         
         dateLabel.text = Date().convertToSNDateFormat()
         
@@ -186,7 +200,8 @@ extension HomeViewController {
     }
 }
 
-// MARK: PageControl and Load more Settings
+// MARK: UICollectionViewDelegate && PageControl and load more settings
+
 extension HomeViewController: UICollectionViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let offsetX = scrollView.contentOffset.x
@@ -206,6 +221,8 @@ extension HomeViewController: UICollectionViewDelegate {
     }
 }
 
+// MARK: UICollectionViewDataSource
+
 extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -215,7 +232,7 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let survey = surveyList[indexPath.item]
-        let reuseID = Constants.Localization.reuseIDSurveyCell
+        let reuseID = Constants.Strings.reuseIDSurveyCell
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseID,
                                                             for: indexPath) as? SurveyCollectionViewCell else {
             return UICollectionViewCell()

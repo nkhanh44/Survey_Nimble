@@ -71,6 +71,10 @@
 		8BB4155828622BB300BC790F /* ForgotPasswordRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4155728622BB300BC790F /* ForgotPasswordRepository.swift */; };
 		8BB4155A28622C2300BC790F /* ForgotPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4155928622C2300BC790F /* ForgotPasswordRequest.swift */; };
 		8BB4155C2862310D00BC790F /* NoReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4155B2862310D00BC790F /* NoReply.swift */; };
+		8BB4155E2862F70200BC790F /* SNPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4155D2862F70200BC790F /* SNPopUpView.swift */; };
+		8BB41561286307C500BC790F /* ForgotPasswordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB41560286307C500BC790F /* ForgotPasswordViewModelTests.swift */; };
+		8BB41563286307CF00BC790F /* ForgotPasswordNavigatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB41562286307CF00BC790F /* ForgotPasswordNavigatorMock.swift */; };
+		8BB41565286307E600BC790F /* ForgotPasswordRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB41564286307E600BC790F /* ForgotPasswordRepository.swift */; };
 		8BFAD36A285C4BB6005FCC06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFAD369285C4BB6005FCC06 /* AppDelegate.swift */; };
 		8BFAD373285C4BB9005FCC06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BFAD372285C4BB9005FCC06 /* Assets.xcassets */; };
 		8BFAD376285C4BB9005FCC06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFAD374285C4BB9005FCC06 /* LaunchScreen.storyboard */; };
@@ -170,6 +174,10 @@
 		8BB4155728622BB300BC790F /* ForgotPasswordRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRepository.swift; sourceTree = "<group>"; };
 		8BB4155928622C2300BC790F /* ForgotPasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRequest.swift; sourceTree = "<group>"; };
 		8BB4155B2862310D00BC790F /* NoReply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoReply.swift; sourceTree = "<group>"; };
+		8BB4155D2862F70200BC790F /* SNPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNPopUpView.swift; sourceTree = "<group>"; };
+		8BB41560286307C500BC790F /* ForgotPasswordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModelTests.swift; sourceTree = "<group>"; };
+		8BB41562286307CF00BC790F /* ForgotPasswordNavigatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordNavigatorMock.swift; sourceTree = "<group>"; };
+		8BB41564286307E600BC790F /* ForgotPasswordRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRepository.swift; sourceTree = "<group>"; };
 		8BFAD366285C4BB6005FCC06 /* Survey-Nimble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Survey-Nimble.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BFAD369285C4BB6005FCC06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BFAD372285C4BB9005FCC06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -243,6 +251,7 @@
 				8B67D393285D86D4006B7AB0 /* SNButton.swift */,
 				8BB415302860D99B00BC790F /* SNCoverImageView.swift */,
 				8BB415322860DEDC00BC790F /* SNCircleButton.swift */,
+				8BB4155D2862F70200BC790F /* SNPopUpView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -372,6 +381,16 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		8BB4155F2863067400BC790F /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				8BB41560286307C500BC790F /* ForgotPasswordViewModelTests.swift */,
+				8BB41562286307CF00BC790F /* ForgotPasswordNavigatorMock.swift */,
+				8BB41564286307E600BC790F /* ForgotPasswordRepository.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
 		8BFAD35D285C4BB6005FCC06 = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +431,7 @@
 		8BFAD37F285C4BB9005FCC06 /* Survey-NimbleTests */ = {
 			isa = PBXGroup;
 			children = (
+				8BB4155F2863067400BC790F /* ForgotPassword */,
 				8BB4154B2862168200BC790F /* Detail */,
 				8BB415382861B6EA00BC790F /* Home */,
 				8BB41512286058F500BC790F /* Login */,
@@ -786,6 +806,7 @@
 				8BB415402861BB8D00BC790F /* DetailSurveyViewModel.swift in Sources */,
 				8BB4150F28603E1D00BC790F /* ErrorResponse.swift in Sources */,
 				8B67D392285D86C0006B7AB0 /* SNLabel.swift in Sources */,
+				8BB4155E2862F70200BC790F /* SNPopUpView.swift in Sources */,
 				8B67D396285D8C24006B7AB0 /* UIColor+.swift in Sources */,
 				8BB414E1285E215F00BC790F /* BaseViewController.swift in Sources */,
 				8BB415422861BB9D00BC790F /* DetailSurveyNavigator.swift in Sources */,
@@ -831,12 +852,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BB4155028621A1300BC790F /* DetailSurveyNavigatorMock.swift in Sources */,
+				8BB41565286307E600BC790F /* ForgotPasswordRepository.swift in Sources */,
 				8BB4154628620CEE00BC790F /* HomeViewModelTests.swift in Sources */,
 				8BFAD3C3285C6DF2005FCC06 /* ObservableType+.swift in Sources */,
 				8BB4151B28607A4400BC790F /* LoginRepositoryMock.swift in Sources */,
 				8BFAD3C0285C6A9F005FCC06 /* ActivityIndicator.swift in Sources */,
+				8BB41563286307CF00BC790F /* ForgotPasswordNavigatorMock.swift in Sources */,
 				8BB4154E2862185C00BC790F /* Environment.swift in Sources */,
 				8BB4154828620CFD00BC790F /* HomeNavigatorMock.swift in Sources */,
+				8BB41561286307C500BC790F /* ForgotPasswordViewModelTests.swift in Sources */,
 				8BFAD3B6285C693C005FCC06 /* Constants.swift in Sources */,
 				8BB4151D28608B8200BC790F /* TestError.swift in Sources */,
 				8BFAD3B9285C6A14005FCC06 /* ViewModelType.swift in Sources */,
