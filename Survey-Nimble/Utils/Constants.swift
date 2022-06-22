@@ -9,7 +9,7 @@ import Foundation
 
 enum Constants {
     
-    enum Localization {
+    enum Strings {
         
         static let login = "Log in"
         static let emailPlaceholder = "Email"
@@ -19,6 +19,9 @@ enum Constants {
         
         static let reuseIDSurveyCell = "SurveyCell"
         static let forgotPasswordDescription = "Enter your email to receive instructions for resetting your password.  "
+        static let reset = "Reset"
+        static let forgotPopUpTitle = "Check your email."
+        static let forgotPopupMessage = "We’ve email you instructions to reset your password."
     }
     
     enum Keys {

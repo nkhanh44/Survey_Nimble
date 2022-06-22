@@ -11,7 +11,7 @@ import Japx
 
 protocol ForgotPasswordRepositoryType {
     
-    func reset(input: ForgotPasswordRequest) -> Observable<NoReply>
+    func reset(input: ForgotPasswordRequest) -> Observable<Message>
 }
 
 final class ForgotPasswordRepository: ForgotPasswordRepositoryType {
@@ -22,7 +22,7 @@ final class ForgotPasswordRepository: ForgotPasswordRepositoryType {
         self.api = api
     }
 
-    func reset(input: ForgotPasswordRequest) -> Observable<NoReply> {
-        return api.request(input).map { $0 }
+    func reset(input: ForgotPasswordRequest) -> Observable<Message> {
+        return api.requestNoReply(input).map { $0 }
     }
 }

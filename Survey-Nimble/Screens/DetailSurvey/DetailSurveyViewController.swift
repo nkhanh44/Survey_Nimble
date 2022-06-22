@@ -18,6 +18,10 @@ final class DetailSurveyViewController: UIViewController, ViewModelBased {
     
     private let backTrigger = PublishSubject<Void>()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

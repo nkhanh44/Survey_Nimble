@@ -9,7 +9,13 @@
 
 final class LoginNavigatorMock: LoginNavigatorType {
     
+    var toForgotPasswordCalled = false
+    
     var toHomeScreenCalled = false
+    
+    func toForgotPassword() {
+        toForgotPasswordCalled = true
+    }
     
     func toHomeScreen() {
         toHomeScreenCalled = true

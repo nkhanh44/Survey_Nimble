@@ -6,9 +6,11 @@
 //
 
 import Foundation
-import Japx
 
-struct NoReply: JapxCodable {
-    var type: String
-    var id: String
+struct Message: Codable {
+    let message: String
+}
+
+struct NoReply: Codable {
+    let meta: Message
 }

@@ -35,11 +35,10 @@ struct LoginViewModel: ViewModel {
         let isPasswordValid = input.passwordTrigger
             .map { $0.isPasswordMustLeast8Letters }
         
-        let isButtonEnabled = Observable.combineLatest(isEmailEmpty, isPassEmpty, isEmailValid, isPasswordValid)
+        let isButtonEnabled = Driver.combineLatest(isEmailEmpty, isPassEmpty, isEmailValid, isPasswordValid)
             .map { isEmailEmpty, isPassEmpty, isEmailValid, isPasswordValid -> Bool in
                 return !isEmailEmpty && !isPassEmpty && isEmailValid && isPasswordValid
             }
-            .asDriverOnErrorJustComplete()
         
         input.loginTrigger
             .withLatestFrom(isButtonEnabled)
@@ -54,7 +53,6 @@ struct LoginViewModel: ViewModel {
                 KeychainAccess.userInfo = user
                 navigator.toHomeScreen()
             })
-            .asDriverOnErrorJustComplete()
             .drive()
             .disposed(by: disposeBag)
         
@@ -65,8 +63,8 @@ struct LoginViewModel: ViewModel {
         return Output(error: errorTracker.asDriver(),
                       isLoading: activityIndicator.asDriver(),
                       enabledLoginButton: isButtonEnabled,
-                      validateEmail: isEmailValid.asDriverOnErrorJustComplete(),
-                      validatePassword: isPasswordValid.asDriverOnErrorJustComplete())
+                      validateEmail: isEmailValid,
+                      validatePassword: isPasswordValid)
     }
 }
 
@@ -74,9 +72,9 @@ struct LoginViewModel: ViewModel {
 extension LoginViewModel {
     
     struct Input {
-        let emailTrigger: Observable<String>
-        let passwordTrigger: Observable<String>
-        let loginTrigger: Observable<Void>
+        let emailTrigger: Driver<String>
+        let passwordTrigger: Driver<String>
+        let loginTrigger: Driver<Void>
         let forgotPasswordTrigger: Driver<Void>
     }
 

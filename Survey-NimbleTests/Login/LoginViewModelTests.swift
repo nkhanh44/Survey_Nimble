@@ -27,6 +27,7 @@ final class LoginViewModelTests: XCTestCase {
     private let emailTrigger = PublishSubject<String>()
     private let passwordTrigger = PublishSubject<String>()
     private let loginTrigger = PublishSubject<Void>()
+    private let forgotPasswordTrigger = PublishSubject<Void>()
     
     // Outputs
     private var isLoadingOutput: TestableObserver<Bool>!
@@ -45,9 +46,10 @@ final class LoginViewModelTests: XCTestCase {
         viewModel = LoginViewModel(navigator: navigator,
                                    repository: repository)
         
-        input = LoginViewModel.Input(emailTrigger: emailTrigger,
-                                     passwordTrigger: passwordTrigger,
-                                     loginTrigger: loginTrigger)
+        input = LoginViewModel.Input(emailTrigger: emailTrigger.asDriverOnErrorJustComplete(),
+                                     passwordTrigger: passwordTrigger.asDriverOnErrorJustComplete(),
+                                     loginTrigger: loginTrigger.asDriverOnErrorJustComplete(),
+                                     forgotPasswordTrigger: forgotPasswordTrigger.asDriverOnErrorJustComplete())
         
         disposeBag = DisposeBag()
         
@@ -236,5 +238,20 @@ extension LoginViewModelTests {
         XCTAssertEqual(enabledLoginButtonOutput.events.last, .next(0, true))
         XCTAssertNotNil(errorOutput.events.last)
         XCTAssertFalse(navigator.toHomeScreenCalled)
+    }
+    
+    func test_navigate_to_forgot_password() {
+        // arrange
+        scheduler.createColdObservable([.next(0, ())])
+            .bind(to: forgotPasswordTrigger)
+            .disposed(by: disposeBag)
+        
+        // act
+        
+        scheduler.start()
+        
+        // assert
+        
+        XCTAssert(navigator.toForgotPasswordCalled)
     }
 }
