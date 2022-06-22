@@ -18,6 +18,7 @@ enum Constants {
         static let today = "Today"
         
         static let reuseIDSurveyCell = "SurveyCell"
+        static let forgotPasswordDescription = "Enter your email to receive instructions for resetting your password.  "
     }
     
     enum Keys {

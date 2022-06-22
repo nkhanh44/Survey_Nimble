@@ -58,6 +58,10 @@ struct LoginViewModel: ViewModel {
             .drive()
             .disposed(by: disposeBag)
         
+        input.forgotPasswordTrigger
+            .drive(onNext: navigator.toForgotPassword)
+            .disposed(by: disposeBag)
+        
         return Output(error: errorTracker.asDriver(),
                       isLoading: activityIndicator.asDriver(),
                       enabledLoginButton: isButtonEnabled,
@@ -73,6 +77,7 @@ extension LoginViewModel {
         let emailTrigger: Observable<String>
         let passwordTrigger: Observable<String>
         let loginTrigger: Observable<Void>
+        let forgotPasswordTrigger: Driver<Void>
     }
 
     struct Output {

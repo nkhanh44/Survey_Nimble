@@ -10,6 +10,7 @@ import UIKit
 protocol LoginNavigatorType {
     
     func toHomeScreen()
+    func toForgotPassword()
 }
 
 struct LoginNavigator: LoginNavigatorType {
@@ -19,5 +20,10 @@ struct LoginNavigator: LoginNavigatorType {
     func toHomeScreen() {
         let homeVC = HomeViewController()
         navigationController?.pushViewController(homeVC, animated: true)
+    }
+    
+    func toForgotPassword() {
+        let forgotPasswordVC = ForgotPasswordViewController()
+        navigationController?.pushViewController(forgotPasswordVC, animated: true)
     }
 }

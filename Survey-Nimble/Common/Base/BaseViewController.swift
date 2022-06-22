@@ -53,4 +53,12 @@ extension BaseViewController {
         
         backgroundImageView.addSubview(visualEffectView)
     }
+    
+    func blurBackground() {
+        visualEffectView.frame = view.bounds
+        visualEffectView.alpha = 0.5
+        
+        backgroundImageView.addSubview(visualEffectView)
+        backgroundImageView.setGradient()
+    }
 }
