@@ -65,6 +65,12 @@
 		8BB4154D2862169300BC790F /* DetailSurveyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4154C2862169300BC790F /* DetailSurveyViewModelTests.swift */; };
 		8BB4154E2862185C00BC790F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB415392861B70C00BC790F /* Environment.swift */; };
 		8BB4155028621A1300BC790F /* DetailSurveyNavigatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4154F28621A1300BC790F /* DetailSurveyNavigatorMock.swift */; };
+		8BB415522862277000BC790F /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB415512862277000BC790F /* ForgotPasswordViewController.swift */; };
+		8BB415542862277D00BC790F /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB415532862277D00BC790F /* ForgotPasswordViewModel.swift */; };
+		8BB415562862278A00BC790F /* ForgotPasswordNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB415552862278A00BC790F /* ForgotPasswordNavigator.swift */; };
+		8BB4155828622BB300BC790F /* ForgotPasswordRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4155728622BB300BC790F /* ForgotPasswordRepository.swift */; };
+		8BB4155A28622C2300BC790F /* ForgotPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4155928622C2300BC790F /* ForgotPasswordRequest.swift */; };
+		8BB4155C2862310D00BC790F /* NoReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4155B2862310D00BC790F /* NoReply.swift */; };
 		8BFAD36A285C4BB6005FCC06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFAD369285C4BB6005FCC06 /* AppDelegate.swift */; };
 		8BFAD373285C4BB9005FCC06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BFAD372285C4BB9005FCC06 /* Assets.xcassets */; };
 		8BFAD376285C4BB9005FCC06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFAD374285C4BB9005FCC06 /* LaunchScreen.storyboard */; };
@@ -158,6 +164,12 @@
 		8BB4154928620D0900BC790F /* HomeRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepositoryMock.swift; sourceTree = "<group>"; };
 		8BB4154C2862169300BC790F /* DetailSurveyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSurveyViewModelTests.swift; sourceTree = "<group>"; };
 		8BB4154F28621A1300BC790F /* DetailSurveyNavigatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSurveyNavigatorMock.swift; sourceTree = "<group>"; };
+		8BB415512862277000BC790F /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		8BB415532862277D00BC790F /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		8BB415552862278A00BC790F /* ForgotPasswordNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordNavigator.swift; sourceTree = "<group>"; };
+		8BB4155728622BB300BC790F /* ForgotPasswordRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRepository.swift; sourceTree = "<group>"; };
+		8BB4155928622C2300BC790F /* ForgotPasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRequest.swift; sourceTree = "<group>"; };
+		8BB4155B2862310D00BC790F /* NoReply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoReply.swift; sourceTree = "<group>"; };
 		8BFAD366285C4BB6005FCC06 /* Survey-Nimble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Survey-Nimble.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BFAD369285C4BB6005FCC06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BFAD372285C4BB9005FCC06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -246,6 +258,9 @@
 		8BB414E4285EEC7300BC790F /* ForgotPassword */ = {
 			isa = PBXGroup;
 			children = (
+				8BB415512862277000BC790F /* ForgotPasswordViewController.swift */,
+				8BB415532862277D00BC790F /* ForgotPasswordViewModel.swift */,
+				8BB415552862278A00BC790F /* ForgotPasswordNavigator.swift */,
 			);
 			path = ForgotPassword;
 			sourceTree = "<group>";
@@ -258,13 +273,6 @@
 				8BB414EC285F0B6000BC790F /* APIService.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		8BB414FC285F677C00BC790F /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Auth;
 			sourceTree = "<group>";
 		};
 		8BB41512286058F500BC790F /* Login */ = {
@@ -292,6 +300,7 @@
 			children = (
 				8BB41501285F7C5C00BC790F /* LoginRepository.swift */,
 				8BB415252860C33200BC790F /* SurveyRepository.swift */,
+				8BB4155728622BB300BC790F /* ForgotPasswordRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -311,6 +320,7 @@
 				8BB415272860C3C100BC790F /* SurveyRequest.swift */,
 				8BB414FF285F753800BC790F /* LoginRequest.swift */,
 				8BB414FA285F5AC100BC790F /* BaseRequest.swift */,
+				8BB4155928622C2300BC790F /* ForgotPasswordRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -431,7 +441,6 @@
 		8BFAD39B285C5DD8005FCC06 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				8BB414FC285F677C00BC790F /* Auth */,
 				8BB414EB285F0B5400BC790F /* Services */,
 				8BFAD3A3285C5F67005FCC06 /* Model */,
 			);
@@ -525,6 +534,7 @@
 				8BB414EE285F0C6A00BC790F /* User.swift */,
 				8BB4152128609B9400BC790F /* Survey.swift */,
 				8BB415342860EA1300BC790F /* Meta.swift */,
+				8BB4155B2862310D00BC790F /* NoReply.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -758,6 +768,8 @@
 				8B67D383285D6618006B7AB0 /* LoginViewController.swift in Sources */,
 				8BB41506285F7DB300BC790F /* GrantType.swift in Sources */,
 				8BB41500285F753800BC790F /* LoginRequest.swift in Sources */,
+				8BB4155C2862310D00BC790F /* NoReply.swift in Sources */,
+				8BB4155828622BB300BC790F /* ForgotPasswordRepository.swift in Sources */,
 				8BB41509285FA06700BC790F /* HomeViewController.swift in Sources */,
 				8B67D390285D80B1006B7AB0 /* SNTextField.swift in Sources */,
 				8B67D394285D86D4006B7AB0 /* SNButton.swift in Sources */,
@@ -797,11 +809,15 @@
 				8BB415442861FB0D00BC790F /* Date+.swift in Sources */,
 				8BFAD3B5285C693C005FCC06 /* Constants.swift in Sources */,
 				8BB4152F2860D6F100BC790F /* EmptyCollectionViewCell.swift in Sources */,
+				8BB4155A28622C2300BC790F /* ForgotPasswordRequest.swift in Sources */,
+				8BB415542862277D00BC790F /* ForgotPasswordViewModel.swift in Sources */,
 				8BFAD3B8285C6A14005FCC06 /* ViewModelType.swift in Sources */,
 				8B67D371285C8378006B7AB0 /* SplashViewController.swift in Sources */,
 				8BB415332860DEDC00BC790F /* SNCircleButton.swift in Sources */,
+				8BB415562862278A00BC790F /* ForgotPasswordNavigator.swift in Sources */,
 				8BB415262860C33200BC790F /* SurveyRepository.swift in Sources */,
 				8BB414F5285F41F400BC790F /* SNError.swift in Sources */,
+				8BB415522862277000BC790F /* ForgotPasswordViewController.swift in Sources */,
 				8BB414ED285F0B6000BC790F /* APIService.swift in Sources */,
 				8BFAD3BC285C6A8E005FCC06 /* ErrorTracker.swift in Sources */,
 				8BB4152228609B9400BC790F /* Survey.swift in Sources */,

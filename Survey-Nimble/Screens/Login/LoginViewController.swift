@@ -41,6 +41,8 @@ final class LoginViewController: BaseViewController, ViewModelBased {
     private let errorEmailLabel = SNLabel(fontSize: 9, color: .red)
     private let errorPasswordLabel = SNLabel(fontSize: 9, color: .red)
     
+    private let forgotPasswordTrigger = PublishSubject<Void>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,7 +56,8 @@ final class LoginViewController: BaseViewController, ViewModelBased {
     func bindViewModel() {
         let input = LoginViewModel.Input(emailTrigger: emailTextField.rx.textWithControlEvents(.editingChanged),
                                          passwordTrigger: passwordTextField.rx.textWithControlEvents(.editingChanged),
-                                         loginTrigger: loginButton.rx.tap.asObservable())
+                                         loginTrigger: loginButton.rx.tap.asObservable(),
+                                         forgotPasswordTrigger: forgotPasswordTrigger.asDriverOnErrorJustComplete())
         let output = viewModel.transform(input, disposeBag: disposeBag)
         
         output.enabledLoginButton
@@ -124,6 +127,9 @@ extension LoginViewController {
         passwordTextField.delegate = self
         passwordTextField.placeholderText = Constants.Localization.passwordPlaceholder
         passwordTextField.type = .password
+        passwordTextField.forgotPasswordAction = { [weak self]  in
+            self?.forgotPasswordTrigger.onNext(())
+        }
         
         emailTextField.addSubview(errorEmailLabel)
         

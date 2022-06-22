@@ -20,7 +20,7 @@ struct SplashViewModel: ViewModel {
             .delay(RxTimeInterval.seconds(2))
             .drive(onNext: {
                 if KeychainAccess.userInfo != nil {
-                    navigator.toHomeScreen()
+                    navigator.toLoginScreen()
                 } else {
                     navigator.toLoginScreen()
                 }

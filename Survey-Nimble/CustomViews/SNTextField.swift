@@ -39,8 +39,8 @@ final class SNTextField: UITextField {
         }
     }
     
+    var forgotPasswordAction: () -> Void  = {}
     private let disposeBag = DisposeBag()
-    private let forgotPasswordAction: () -> Void  = {}
     private let forgotPasswordButton = UIButton()
     private var isPassword: Bool { type == .password }
     
