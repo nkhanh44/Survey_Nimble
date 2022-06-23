@@ -14,12 +14,13 @@ struct HomeViewModel: ViewModel {
     let navigator: HomeNavigatorType
     let repository: SurveyRepositoryType
     
+    let surveyList = BehaviorRelay<[Survey]>(value: [])
+    
     func transform(_ input: Input, disposeBag: DisposeBag) -> Output {
         let errorTracker = ErrorTracker()
         let activityIndicator = ActivityIndicator()
         
-        let hasMoreSurvey = BehaviorRelay<Bool>(value: false)
-        let surveyList = BehaviorRelay<[Survey]>(value: [])
+        let hasMoreSurvey = BehaviorRelay<Bool>(value: true)
         
         input.loadTrigger
             .flatMapLatest { page in

@@ -11,6 +11,7 @@ import RxSwift
 protocol SurveyRepositoryType {
     
     func getSurveyList(input: SurveyRequest) -> Observable<([Survey], Meta)>
+    func refreshToken(input: RefreshTokenRequest) -> Observable<User>
 }
 
 final class SurveyRepository: SurveyRepositoryType {
@@ -23,5 +24,9 @@ final class SurveyRepository: SurveyRepositoryType {
 
     func getSurveyList(input: SurveyRequest) -> Observable<([Survey], Meta)> {
         return api.requestList(input).map { $0 }
+    }
+    
+    func refreshToken(input: RefreshTokenRequest) -> Observable<User> {
+        return api.request(input)
     }
 }

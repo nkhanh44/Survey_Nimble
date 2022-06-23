@@ -33,11 +33,10 @@ final class HomeViewController: UIViewController, ViewModelBased {
     private var collectionView: UICollectionView!
     private var page = 1
     private var hasMoreSurvey = false
-    private var surveyList = [Survey]()
     private var reachability: Reachability?
-    private var isFirstLoaded = true
     private let hostNames = [nil, "google.com"]
     private var hostIndex = 0
+    private var surveyList = [Survey]()
     
     private var loadTrigger = PublishSubject<Int>()
     private var toDetailTrigger = PublishSubject<Void>()
@@ -104,9 +103,6 @@ final class HomeViewController: UIViewController, ViewModelBased {
 extension HomeViewController {
     
     func configure() {
-        let navigator = HomeNavigator(navigationController: navigationController)
-        let repository = SurveyRepository(api: APIService.shared)
-        viewModel = HomeViewModel(navigator: navigator, repository: repository)
         bindViewModel()
     }
     
@@ -315,10 +311,6 @@ extension HomeViewController: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseID,
                                                                 for: indexPath) as? EmptyCollectionViewCell else {
                 return UICollectionViewCell()
-            }
-            
-            cell.reloadAction = { [weak self] in
-                self?.loadTrigger.onNext(1)
             }
             
             return cell
