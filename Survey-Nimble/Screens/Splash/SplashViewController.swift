@@ -21,11 +21,15 @@ final class SplashViewController: BaseViewController, ViewModelBased {
     }
     
     func bindViewModel() {
-        let input = SplashViewModel.Input(loadTrigger: Driver.just(()))
+        let input = SplashViewModel.Input(loadTrigger: Driver.just(KeychainAccess.userInfo != nil))
         let output = viewModel.transform(input, disposeBag: disposeBag)
         
         output.error
-            .drive()
+            .drive(rx.error)
+            .disposed(by: disposeBag)
+        
+        output.isLoading
+            .drive(rx.isLoading)
             .disposed(by: disposeBag)
     }
 }

@@ -79,11 +79,11 @@ extension UIViewController {
     // swiftlint:disable all
     func setupShimmeringImage(completion: @escaping () -> Void) {
         let backgroundImageView = UIImageView(image: UIImage(named: "lazy_load_2"))
-        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.contentMode = .scaleToFill
         backgroundImageView.frame = view.frame
         
         let shimmerImageView = UIImageView(image: UIImage(named: "lazy_load_1"))
-        shimmerImageView.contentMode = .scaleAspectFill
+        shimmerImageView.contentMode = .scaleToFill
         shimmerImageView.frame = view.frame
         
         view.addSubview(shimmerImageView)

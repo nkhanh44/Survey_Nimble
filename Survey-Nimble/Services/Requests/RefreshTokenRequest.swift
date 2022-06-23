@@ -11,7 +11,7 @@ final class RefreshTokenRequest: BaseRequest {
     
     required init() {
         var body: [String: Any] = [
-            "grant_type": "refresh_token",
+            "grant_type": GrantType.refreshToken.rawValue,
             "client_id": Constants.Keys.clientId,
             "client_secret": Constants.Keys.clientSecret
         ]

@@ -58,7 +58,10 @@ final class HomeViewController: UIViewController, ViewModelBased {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.view.alpha = 0
+        UIView.animate(withDuration: 1) {
+            self.view.alpha = 1
+        }
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
@@ -170,10 +173,18 @@ extension HomeViewController {
             $0.width.height.equalTo(Numbers.avatarSize)
         }
         
-        pageControl.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(-13)
-            $0.bottom.equalToSuperview().inset(200)
-            $0.height.equalTo(10)
+        if #available(iOS 13.0, *) {
+            pageControl.snp.makeConstraints {
+                $0.leading.equalToSuperview().offset(-13)
+                $0.bottom.equalToSuperview().inset(200)
+                $0.height.equalTo(10)
+            }
+        } else {
+            pageControl.snp.makeConstraints {
+                $0.leading.equalTo(todayLabel.snp.leading).inset(13)
+                $0.bottom.equalToSuperview().inset(200)
+                $0.height.equalTo(10)
+            }
         }
     }
     
@@ -277,6 +288,12 @@ extension HomeViewController {
 
 extension HomeViewController: UICollectionViewDelegate {
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        UIView.animate(withDuration: 0) {
+            self.view.alpha = 0.8
+        }
+    }
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let offsetX = scrollView.contentOffset.x
         let contentWidth = scrollView.contentSize.width
@@ -289,6 +306,9 @@ extension HomeViewController: UICollectionViewDelegate {
             }
             page += 1
             loadTrigger.onNext(page)
+        }
+        UIView.animate(withDuration: 0.5) {
+            self.view.alpha = 1
         }
         
         pageControl.currentPage = Int(offsetX) / Int(width)

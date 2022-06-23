@@ -11,7 +11,7 @@ final class LoginRequest: BaseRequest {
     
     required init(email: String, password: String) {
         let body: [String: Any] = [
-            "grant_type": "password",
+            "grant_type": GrantType.password.rawValue,
             "email": email,
             "password": password,
             "client_id": Constants.Keys.clientId,
