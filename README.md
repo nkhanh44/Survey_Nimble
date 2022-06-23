@@ -27,7 +27,7 @@
 - [x] Authentication: implement the forgot password authentication screen.
 
 # Technical requirements
-- [x] Develop the application using:
+- [x] Develop the application using:<br>
 			- Xcode<br>
 			- Cocoa Pods<br>
 			- Fastlane<br>
