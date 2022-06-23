@@ -44,6 +44,10 @@
 ![Screen Shot 2022-06-23 at 20 52 15](https://user-images.githubusercontent.com/25881847/175350554-0c2f6347-64fa-4388-84ec-36c2c5aaa201.png)
 
 
+---------------
+## Other
+- I break and track my tasks at https://trello.com/b/Fo5pbyiy/tracking-task
+
 
 
 
