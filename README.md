@@ -17,9 +17,9 @@
 			- Cover image (background)<br>
 	    - Name (in bold)<br>
 			- Description<br>
-- [x] There must be 2 actions:
-			- Horizontal scroll through the surveys.
-			- A button “Take Survey” should take the user to the survey detail screen. 
+- [x] There must be 2 actions:<br>
+			- Horizontal scroll through the surveys.<br>
+			- A button “Take Survey” should take the user to the survey detail screen. <br>
 - [x] The list of surveys must be fetched when opening the application.
 - [x] Show a loading animation when fetching the list of surveys.
 - [x] The navigation indicator list (bullets) must be dynamic and based on the API response. <br>
