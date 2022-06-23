@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import RxSwift
 
 final class EmptyCollectionViewCell: UICollectionViewCell {
     
-    private let titleLabel = SNLabel(fontSize: 28, style: .bold, color: .white)
+    private let titleLabel = SNLabel(fontSize: 24, style: .regular, color: .white)
     private let logoImageView = UIImageView(image: UIImage(named: "ic_logo"))
-    private let reloadButton = SNButton(backgroundColor: .white, title: "Reload")
+    private let reloadButton = SNCircleButton(backgroundColor: .white,
+                                              image: UIImage(named: "ic_refresh") ?? UIImage())
+    var reloadAction: () -> Void = {}
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,8 +31,26 @@ final class EmptyCollectionViewCell: UICollectionViewCell {
 extension EmptyCollectionViewCell {
     
     private func setupView() {
-        backgroundColor = .black.withAlphaComponent(0.5)
+        addSubview(titleLabel)
+        addSubview(logoImageView)
+        addSubview(reloadButton)
+        backgroundColor = .black.withAlphaComponent(0.8)
         
-        titleLabel.text = "There's no survey now"
+        logoImageView.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(167)
+            $0.height.equalTo(40)
+        }
+        
+        titleLabel.snp.makeConstraints {
+            $0.bottom.equalTo(logoImageView.snp.top).offset(-30)
+            $0.leading.equalToSuperview().inset(20)
+            $0.trailing.equalToSuperview().inset(20)
+            $0.centerX.equalToSuperview()
+        }
+        titleLabel.textAlignment = .center
+        titleLabel.numberOfLines = 0
+        titleLabel.text = Constants.Strings.emptyCellTitle
     }
 }

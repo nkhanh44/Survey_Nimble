@@ -1,8 +1,10 @@
 PODS:
+  - IQKeyboardManager (6.5.10)
   - Japx (4.0.0):
     - Japx/Core (= 4.0.0)
   - Japx/Core (4.0.0)
   - KeychainAccess (4.2.2)
+  - ReachabilitySwift (5.0.0)
   - RxBlocking (6.5.0):
     - RxSwift (= 6.5.0)
   - RxCocoa (6.5.0):
@@ -17,8 +19,10 @@ PODS:
   - SwiftLint (0.43.1)
 
 DEPENDENCIES:
+  - IQKeyboardManager
   - Japx
   - KeychainAccess
+  - ReachabilitySwift
   - RxBlocking (= 6.5.0)
   - RxCocoa (= 6.5.0)
   - RxSwift (= 6.5.0)
@@ -28,8 +32,10 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - IQKeyboardManager
     - Japx
     - KeychainAccess
+    - ReachabilitySwift
     - RxBlocking
     - RxCocoa
     - RxRelay
@@ -39,8 +45,10 @@ SPEC REPOS:
     - SwiftLint
 
 SPEC CHECKSUMS:
+  IQKeyboardManager: 45a1fa55c1a5b02c61ac0fd7fd5b62bb4ad20d97
   Japx: 4bb2d79d023af5e7ea44c0a2875c4b070080e111
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   RxBlocking: 04b5fd28bb5ea49f7d64b80db8bbfe50d9cc1c7d
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
@@ -49,6 +57,6 @@ SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: dc88839728830fc5c901596715767b4d7820e17b
+PODFILE CHECKSUM: 610952863b6c5acbea465a629249f355334e2b2d
 
 COCOAPODS: 1.10.1

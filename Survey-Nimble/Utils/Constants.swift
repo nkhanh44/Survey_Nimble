@@ -18,10 +18,12 @@ enum Constants {
         static let today = "Today"
         
         static let reuseIDSurveyCell = "SurveyCell"
+        static let reuseIDEmptyCell = "EmptyCollectionViewCell"
         static let forgotPasswordDescription = "Enter your email to receive instructions for resetting your password.  "
         static let reset = "Reset"
         static let forgotPopUpTitle = "Check your email."
         static let forgotPopupMessage = "We’ve email you instructions to reset your password."
+        static let emptyCellTitle = "There's no survey now"
     }
     
     enum Keys {

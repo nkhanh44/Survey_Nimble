@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import IQKeyboardManager
+import Reachability
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = UINavigationController(rootViewController: splashVC)
         window?.makeKeyAndVisible()
         
+        configure()
+        
         return true
+    }
+    
+    private func configure() {
+        let IQKeyboard = IQKeyboardManager.shared()
+        IQKeyboard.isEnabled = true
+        IQKeyboard.shouldResignOnTouchOutside = true
     }
 }

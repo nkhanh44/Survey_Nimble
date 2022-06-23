@@ -48,6 +48,8 @@ final class ForgotPasswordViewController: BaseViewController, ViewModelBased {
     private let popUpView = SNPopUpView(title: Constants.Strings.forgotPopUpTitle,
                                         message: Constants.Strings.forgotPopupMessage)
     
+    private let resetTrigger = PublishSubject<Void>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,7 +66,7 @@ final class ForgotPasswordViewController: BaseViewController, ViewModelBased {
             emailTrigger: emailTextField.rx
                 .textWithControlEvents(.editingChanged)
                 .asDriverOnErrorJustComplete(),
-            resetTrigger: resetButton.rx.tap.asDriver(),
+            resetTrigger: resetTrigger.asDriverOnErrorJustComplete(),
             backTrigger: backButton.rx.tap.asDriver()
         )
         let output = viewModel.transform(input, disposeBag: disposeBag)
@@ -158,6 +160,11 @@ extension ForgotPasswordViewController {
         }
         
         resetButton.isValid = false
+        resetButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.resetTrigger.onNext(())
+            })
+            .disposed(by: disposeBag)
     }
     
     private func configureStackView() {
@@ -199,7 +206,9 @@ extension ForgotPasswordViewController {
 
 extension ForgotPasswordViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         textField.resignFirstResponder()
+        resetTrigger.onNext(())
         return true
     }
 }

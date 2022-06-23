@@ -417,7 +417,8 @@
 				8BFAD39A285C5DCF005FCC06 /* Application */,
 				8BFAD3A2285C5EA9005FCC06 /* Utils */,
 				8BFAD399285C5DC7005FCC06 /* Common */,
-				8BFAD39B285C5DD8005FCC06 /* Data */,
+				8BFAD3A3285C5F67005FCC06 /* Model */,
+				8BB414EB285F0B5400BC790F /* Services */,
 				8BB415232860BE8A00BC790F /* Repositories */,
 				8B67D38E285D8058006B7AB0 /* CustomViews */,
 				8BFAD39E285C5E70005FCC06 /* Screens */,
@@ -456,15 +457,6 @@
 				8BFAD369285C4BB6005FCC06 /* AppDelegate.swift */,
 			);
 			path = Application;
-			sourceTree = "<group>";
-		};
-		8BFAD39B285C5DD8005FCC06 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				8BB414EB285F0B5400BC790F /* Services */,
-				8BFAD3A3285C5F67005FCC06 /* Model */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		8BFAD39C285C5DE0005FCC06 /* Extensions */ = {
@@ -1060,7 +1052,7 @@
 		};
 		8B67D37D285D2BF9006B7AB0 /* Release STG */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B826CB9A99498FBBE296675A /* Pods-Survey-NimbleTests.debug.xcconfig */;
+			baseConfigurationReference = F7D7ED3832B5BF82E24F6FF3 /* Pods-Survey-Nimble.release stg.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1085,7 +1077,7 @@
 		};
 		8B67D37E285D2BF9006B7AB0 /* Release STG */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42657B54F9CE98CCFEEBF481 /* Pods-Survey-NimbleTests.debug stg.xcconfig */;
+			baseConfigurationReference = E46ADAF5A23B19C76E14562A /* Pods-Survey-NimbleTests.release stg.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1248,7 +1240,7 @@
 		};
 		8BFAD392285C4BB9005FCC06 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A8FC67F2B5561A1F6B9B938 /* Pods-Survey-NimbleTests.release.xcconfig */;
+			baseConfigurationReference = 6157986F9FCED7F620779530 /* Pods-Survey-Nimble.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1295,7 +1287,7 @@
 		};
 		8BFAD395285C4BB9005FCC06 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E46ADAF5A23B19C76E14562A /* Pods-Survey-NimbleTests.release stg.xcconfig */;
+			baseConfigurationReference = 5A8FC67F2B5561A1F6B9B938 /* Pods-Survey-NimbleTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
