@@ -28,9 +28,9 @@
 
 # Technical requirements
 - [x] Develop the application using:
-			- Xcode
-			- Cocoa Pods
-			- Fastlane
+			- Xcode<br>
+			- Cocoa Pods<br>
+			- Fastlane<br>
 - [x] Target iOS 10.0 and up.
 - [x] Use Git during the development process. Push to a public repository on Bitbucket, Github, or Gitlab. Make regular commits and merge code using pull requests.
 - [x] Write unit tests using your framework of choice.
