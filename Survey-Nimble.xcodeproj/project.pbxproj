@@ -75,6 +75,7 @@
 		8BB41561286307C500BC790F /* ForgotPasswordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB41560286307C500BC790F /* ForgotPasswordViewModelTests.swift */; };
 		8BB41563286307CF00BC790F /* ForgotPasswordNavigatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB41562286307CF00BC790F /* ForgotPasswordNavigatorMock.swift */; };
 		8BB41565286307E600BC790F /* ForgotPasswordRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB41564286307E600BC790F /* ForgotPasswordRepository.swift */; };
+		8BBA5BC928647CE1004888E9 /* RefreshTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA5BC828647CE1004888E9 /* RefreshTokenRequest.swift */; };
 		8BFAD36A285C4BB6005FCC06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFAD369285C4BB6005FCC06 /* AppDelegate.swift */; };
 		8BFAD373285C4BB9005FCC06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BFAD372285C4BB9005FCC06 /* Assets.xcassets */; };
 		8BFAD376285C4BB9005FCC06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFAD374285C4BB9005FCC06 /* LaunchScreen.storyboard */; };
@@ -178,6 +179,7 @@
 		8BB41560286307C500BC790F /* ForgotPasswordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModelTests.swift; sourceTree = "<group>"; };
 		8BB41562286307CF00BC790F /* ForgotPasswordNavigatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordNavigatorMock.swift; sourceTree = "<group>"; };
 		8BB41564286307E600BC790F /* ForgotPasswordRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRepository.swift; sourceTree = "<group>"; };
+		8BBA5BC828647CE1004888E9 /* RefreshTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenRequest.swift; sourceTree = "<group>"; };
 		8BFAD366285C4BB6005FCC06 /* Survey-Nimble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Survey-Nimble.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BFAD369285C4BB6005FCC06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BFAD372285C4BB9005FCC06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				8BB414FF285F753800BC790F /* LoginRequest.swift */,
 				8BB414FA285F5AC100BC790F /* BaseRequest.swift */,
 				8BB4155928622C2300BC790F /* ForgotPasswordRequest.swift */,
+				8BBA5BC828647CE1004888E9 /* RefreshTokenRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -826,6 +829,7 @@
 				8BB415542862277D00BC790F /* ForgotPasswordViewModel.swift in Sources */,
 				8BFAD3B8285C6A14005FCC06 /* ViewModelType.swift in Sources */,
 				8B67D371285C8378006B7AB0 /* SplashViewController.swift in Sources */,
+				8BBA5BC928647CE1004888E9 /* RefreshTokenRequest.swift in Sources */,
 				8BB415332860DEDC00BC790F /* SNCircleButton.swift in Sources */,
 				8BB415562862278A00BC790F /* ForgotPasswordNavigator.swift in Sources */,
 				8BB415262860C33200BC790F /* SurveyRepository.swift in Sources */,

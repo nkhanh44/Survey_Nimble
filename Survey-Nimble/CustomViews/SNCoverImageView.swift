@@ -43,7 +43,7 @@ final class SNImageView: UIImageView {
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                return
             }
-            print(response.statusCode)
+            
             guard let data = data, let image = UIImage(data: data) else { return }
 
             self.cache.setObject(image, forKey: cacheKey)

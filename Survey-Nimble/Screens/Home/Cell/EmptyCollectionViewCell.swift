@@ -12,9 +12,6 @@ final class EmptyCollectionViewCell: UICollectionViewCell {
     
     private let titleLabel = SNLabel(fontSize: 24, style: .regular, color: .white)
     private let logoImageView = UIImageView(image: UIImage(named: "ic_logo"))
-    private let reloadButton = SNCircleButton(backgroundColor: .white,
-                                              image: UIImage(named: "ic_refresh") ?? UIImage())
-    var reloadAction: () -> Void = {}
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,7 +30,6 @@ extension EmptyCollectionViewCell {
     private func setupView() {
         addSubview(titleLabel)
         addSubview(logoImageView)
-        addSubview(reloadButton)
         backgroundColor = .black.withAlphaComponent(0.8)
         
         logoImageView.snp.makeConstraints {

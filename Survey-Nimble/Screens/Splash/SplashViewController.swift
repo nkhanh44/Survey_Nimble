@@ -36,7 +36,8 @@ extension SplashViewController {
     
     private func configure() {
         let navigator = SplashNavigator(navigationController: navigationController)
-        viewModel = SplashViewModel(navigator: navigator)
+        let repository = SurveyRepository(api: APIService.shared)
+        viewModel = SplashViewModel(navigator: navigator, repository: repository)
         bindViewModel()
     }
 }

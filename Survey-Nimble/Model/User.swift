@@ -12,10 +12,10 @@ struct User: JapxCodable {
     
     let id: String
     let type: String
-    let accessToken: String
+    var accessToken: String
     let tokenType: String
     let expiresIn: Int
-    let refreshToken: String
+    var refreshToken: String
     let createdAt: Int
 }
 

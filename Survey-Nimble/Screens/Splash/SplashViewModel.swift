@@ -11,23 +11,36 @@ import RxCocoa
 
 struct SplashViewModel: ViewModel {
     
-    let navigator: SplashNavigator
+    let navigator: SplashNavigatorType
+    let repository: SurveyRepositoryType
 
     func transform(_ input: SplashViewModel.Input, disposeBag: DisposeBag) -> SplashViewModel.Output {
         let errorTracker = ErrorTracker()
+        let activityIndicator = ActivityIndicator()
         
         input.loadTrigger
-            .delay(RxTimeInterval.seconds(2))
-            .drive(onNext: {
-                if KeychainAccess.userInfo != nil {
-                    navigator.toHomeScreen()
-                } else {
-                    navigator.toLoginScreen()
-                }
+            .filter { KeychainAccess.userInfo != nil }
+            .delay(RxTimeInterval.seconds(1))
+            .flatMapLatest {
+                return self.repository.getSurveyList(input: SurveyRequest(page: 1, pageSize: 10))
+                    .trackError(errorTracker)
+                    .trackActivity(activityIndicator)
+                    .asDriverOnErrorJustComplete()
+            }
+            .map { $0 }
+            .drive(onNext: { data in
+                navigator.toHomeScreen(data: data.0)
             })
             .disposed(by: disposeBag)
+        
+        input.loadTrigger
+            .filter { KeychainAccess.userInfo == nil }
+            .delay(RxTimeInterval.seconds(2))
+            .drive(onNext: navigator.toLoginScreen)
+            .disposed(by: disposeBag)
                 
-        return Output(error: errorTracker.asDriver())
+        return Output(error: errorTracker.asDriver(),
+                      isLoading: activityIndicator.asDriver())
     }
 }
 
@@ -41,5 +54,6 @@ extension SplashViewModel {
 
     struct Output {
         let error: Driver<Error>
+        let isLoading: Driver<Bool>
     }
 }

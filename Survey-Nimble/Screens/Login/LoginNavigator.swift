@@ -19,7 +19,15 @@ struct LoginNavigator: LoginNavigatorType {
     
     func toHomeScreen() {
         let homeVC = HomeViewController()
-        navigationController?.pushViewController(homeVC, animated: true)
+        let navigationController = UINavigationController(rootViewController: homeVC)
+        let navigator = HomeNavigator(navigationController: navigationController)
+        let repository = SurveyRepository(api: APIService.shared)
+        let viewModel = HomeViewModel(navigator: navigator,
+                                      repository: repository)
+        homeVC.viewModel = viewModel
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        appDelegate.window?.rootViewController = navigationController
     }
     
     func toForgotPassword() {

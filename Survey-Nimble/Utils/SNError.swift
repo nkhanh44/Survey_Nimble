@@ -16,6 +16,7 @@ enum SNError: Error {
     
     // API Error
     case apiError(ErrorResponse)
+    case unauthentication
     
     // get description
     var errorDescription: String {
@@ -28,6 +29,8 @@ enum SNError: Error {
             return "Lost Connection, Please check the internet!"
         case .apiError(let errorResponse):
             return errorResponse.detail
+        case .unauthentication:
+            return ""
         }
     }
 }
