@@ -27,10 +27,14 @@ enum Constants {
         static let startSurvey = "Start Survey"
     }
     
+    // swiftlint:disable all
     enum Keys {
-        
-        static let clientId = "ofzl-2h5ympKa0WqqTzqlVJUiRsxmXQmt5tkgrlWnOE"
-        static let clientSecret = "lMQb900L-mTeU-FVTCwyhjsfBwRCxwwbCitPob96cuU"
+        static var clientId: String {
+            try! Configuration.value(for: "CLIENT_ID")
+        }
+        static var clientSecret: String {
+            try! Configuration.value(for: "CLIENT_SECRET")
+        }
     }
     
     enum Numbers {
