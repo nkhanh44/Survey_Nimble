@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Reachability
 
 // MARK: Number constants
 
@@ -33,6 +34,10 @@ final class HomeViewController: UIViewController, ViewModelBased {
     private var page = 1
     private var hasMoreSurvey = false
     private var surveyList = [Survey]()
+    private var reachability: Reachability?
+    private var isFirstLoaded = true
+    private let hostNames = [nil, "google.com"]
+    private var hostIndex = 0
     
     private var loadTrigger = PublishSubject<Int>()
     private var toDetailTrigger = PublishSubject<Void>()
@@ -43,16 +48,26 @@ final class HomeViewController: UIViewController, ViewModelBased {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        configureCollectionView()
-        configure()
-        setupView()
-        configureComponents()
+        setupShimmeringImage(completion: { [weak self] in
+            self?.configureCollectionView()
+            self?.configure()
+            self?.setupView()
+            self?.configureComponents()
+            self?.startHost(at: 0)
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        reachability?.stopNotifier()
+        NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: reachability)
     }
     
     func bindViewModel() {
@@ -77,6 +92,10 @@ final class HomeViewController: UIViewController, ViewModelBased {
                 self?.hasMoreSurvey = hasMoreSurvey
             })
             .disposed(by: disposeBag)
+    }
+    
+    deinit {
+        stopNotifier()
     }
 }
 
@@ -108,6 +127,8 @@ extension HomeViewController {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(SurveyCollectionViewCell.self,
                                 forCellWithReuseIdentifier: Constants.Strings.reuseIDSurveyCell)
+        collectionView.register(EmptyCollectionViewCell.self,
+                                forCellWithReuseIdentifier: Constants.Strings.reuseIDEmptyCell)
         
         view.addSubview(collectionView)
         view.sendSubviewToBack(collectionView)
@@ -176,14 +197,70 @@ extension HomeViewController {
                 self?.toDetailTrigger.onNext(())
             })
             .disposed(by: disposeBag)
-        
-        loadTrigger.onNext(page)
     }
     
     @objc private func didPageControlChange(_ sender: UIPageControl) {
         collectionView.scrollToItem(at: IndexPath(item: sender.currentPage, section: 0),
                                     at: .centeredHorizontally,
                                     animated: true)
+    }
+}
+
+// MARK: - Setup Reachability
+
+extension HomeViewController {
+    
+    private func startHost(at index: Int) {
+        stopNotifier()
+        setupReachability(hostNames[index])
+        startNotifier()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            self.startHost(at: (index + 1) % 2)
+        }
+    }
+    
+    private func startNotifier() {
+        do {
+            try reachability?.startNotifier()
+        } catch {
+            return
+        }
+    }
+    
+    private func stopNotifier() {
+        reachability?.stopNotifier()
+        NotificationCenter.default.removeObserver(self,
+                                                  name: .reachabilityChanged,
+                                                  object: nil)
+        reachability = nil
+    }
+    
+    private func setupReachability(_ hostName: String?) {
+        let reachability: Reachability?
+        if let hostName = hostName {
+            reachability = try? Reachability(hostname: hostName)
+        } else {
+            reachability = try? Reachability()
+        }
+        self.reachability = reachability
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(reachabilityChanged(note:)),
+            name: .reachabilityChanged,
+            object: reachability
+        )
+    }
+    
+    @objc private func reachabilityChanged(note: Notification) {
+        let reachability = note.object as? Reachability
+        
+        if reachability?.connection != .unavailable {
+            guard surveyList.isEmpty else { return }
+            loadTrigger.onNext(page)
+        } else {
+            showAlert(with: SNError.lostConnection, color: .red)
+        }
     }
 }
 
@@ -203,6 +280,7 @@ extension HomeViewController {
 // MARK: UICollectionViewDelegate && PageControl and load more settings
 
 extension HomeViewController: UICollectionViewDelegate {
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let offsetX = scrollView.contentOffset.x
         let contentWidth = scrollView.contentSize.width
@@ -226,11 +304,26 @@ extension HomeViewController: UICollectionViewDelegate {
 extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        surveyList.count
+        surveyList.isEmpty ? 1 : surveyList.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if surveyList.isEmpty {
+            let reuseID = Constants.Strings.reuseIDEmptyCell
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseID,
+                                                                for: indexPath) as? EmptyCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            
+            cell.reloadAction = { [weak self] in
+                self?.loadTrigger.onNext(1)
+            }
+            
+            return cell
+        }
+        
         let survey = surveyList[indexPath.item]
         let reuseID = Constants.Strings.reuseIDSurveyCell
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseID,

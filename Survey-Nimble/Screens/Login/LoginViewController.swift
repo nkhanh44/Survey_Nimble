@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SnapKit
+import IQKeyboardManager
 
 // MARK: Number constants
 
@@ -46,6 +47,7 @@ final class LoginViewController: BaseViewController, ViewModelBased {
     private let errorPasswordLabel = SNLabel(fontSize: 9, color: .red)
     
     private let forgotPasswordTrigger = PublishSubject<Void>()
+    private let loginTrigger = PublishSubject<Void>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +66,7 @@ final class LoginViewController: BaseViewController, ViewModelBased {
                                          passwordTrigger: passwordTextField.rx
                                             .textWithControlEvents(.editingChanged)
                                             .asDriverOnErrorJustComplete(),
-                                         loginTrigger: loginButton.rx.tap.asDriverOnErrorJustComplete(),
+                                         loginTrigger: loginTrigger.asDriverOnErrorJustComplete(),
                                          forgotPasswordTrigger: forgotPasswordTrigger.asDriverOnErrorJustComplete())
         
         let output = viewModel.transform(input, disposeBag: disposeBag)
@@ -165,6 +167,11 @@ extension LoginViewController {
         loginButton.isValid = false
         
         hideLoginComponents(with: true)
+        loginButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.loginTrigger.onNext(())
+            })
+            .disposed(by: disposeBag)
     }
     
     private func animateUI() {
@@ -205,8 +212,18 @@ extension LoginViewController {
 // MARK: UITextFieldDelegate
 
 extension LoginViewController: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        if textField == emailTextField {
+            textField.resignFirstResponder()
+            passwordTextField.becomeFirstResponder()
+        } else if textField == passwordTextField && loginButton.isValid {
+            textField.resignFirstResponder()
+            loginTrigger.onNext(())
+        } else {
+            textField.resignFirstResponder()
+        }
+        
         return true
     }
 }

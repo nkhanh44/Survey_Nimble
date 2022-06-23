@@ -12,16 +12,14 @@ target 'Survey-Nimble' do
     pod 'SnapKit', '~> 5.6.0'
     pod 'Japx'
     pod 'KeychainAccess'
+    pod 'IQKeyboardManager'
+    pod 'ReachabilitySwift'
 
   target 'Survey-NimbleTests' do
     inherit! :search_paths
     # Pods for testing
     pod 'RxBlocking', '6.5.0'
     pod 'RxTest', '6.5.0'
-  end
-
-  target 'Survey-NimbleUITests' do
-    # Pods for testing
   end
 
 end
