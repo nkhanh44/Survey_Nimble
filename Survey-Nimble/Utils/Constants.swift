@@ -24,12 +24,18 @@ enum Constants {
         static let forgotPopUpTitle = "Check your email."
         static let forgotPopupMessage = "We’ve email you instructions to reset your password."
         static let emptyCellTitle = "There's no survey now"
+        static let startSurvey = "Start Survey"
     }
     
     enum Keys {
         
         static let clientId = "ofzl-2h5ympKa0WqqTzqlVJUiRsxmXQmt5tkgrlWnOE"
         static let clientSecret = "lMQb900L-mTeU-FVTCwyhjsfBwRCxwwbCitPob96cuU"
+    }
+    
+    enum Numbers {
+        
+        static let pageSize = 10
     }
     
     enum APIs {

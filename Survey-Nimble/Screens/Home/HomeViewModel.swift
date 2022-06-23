@@ -24,7 +24,8 @@ struct HomeViewModel: ViewModel {
         
         input.loadTrigger
             .flatMapLatest { page in
-                return repository.getSurveyList(input: SurveyRequest(page: page, pageSize: 10))
+                return repository.getSurveyList(input: SurveyRequest(page: page,
+                                                                     pageSize: Constants.Numbers.pageSize))
                     .trackError(errorTracker)
                     .trackActivity(activityIndicator)
                     .asDriverOnErrorJustComplete()

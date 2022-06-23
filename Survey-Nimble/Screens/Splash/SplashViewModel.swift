@@ -19,10 +19,11 @@ struct SplashViewModel: ViewModel {
         let activityIndicator = ActivityIndicator()
         
         input.loadTrigger
-            .filter { KeychainAccess.userInfo != nil }
+            .filter { $0 }
             .delay(RxTimeInterval.seconds(1))
-            .flatMapLatest {
-                return self.repository.getSurveyList(input: SurveyRequest(page: 1, pageSize: 10))
+            .flatMapLatest { _ in
+                return self.repository.getSurveyList(input: SurveyRequest(page: 1,
+                                                                          pageSize: Constants.Numbers.pageSize))
                     .trackError(errorTracker)
                     .trackActivity(activityIndicator)
                     .asDriverOnErrorJustComplete()
@@ -34,8 +35,9 @@ struct SplashViewModel: ViewModel {
             .disposed(by: disposeBag)
         
         input.loadTrigger
-            .filter { KeychainAccess.userInfo == nil }
+            .filter { !$0 }
             .delay(RxTimeInterval.seconds(2))
+            .mapToVoid()
             .drive(onNext: navigator.toLoginScreen)
             .disposed(by: disposeBag)
                 
@@ -49,7 +51,7 @@ struct SplashViewModel: ViewModel {
 extension SplashViewModel {
     
     struct Input {
-        let loadTrigger: Driver<Void>
+        let loadTrigger: Driver<Bool>
     }
 
     struct Output {

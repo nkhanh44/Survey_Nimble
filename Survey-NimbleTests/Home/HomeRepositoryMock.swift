@@ -14,6 +14,8 @@ final class HomeRepositoryMock: SurveyRepositoryType {
     
     var getSurveyListCalled = false
     
+    var refreshTokenCalled = false
+    
     var getSurveyListReturnValue = Observable.just(([
         Survey(id: "1",
                type: "restaurant",
@@ -31,8 +33,21 @@ final class HomeRepositoryMock: SurveyRepositoryType {
          pageSize: 10,
          records: 20)))
     
+    var refreshTokenReturnValue = Observable.just(User(id: "123",
+                                                       type: "token",
+                                                       accessToken: "xxx",
+                                                       tokenType: "xxx",
+                                                       expiresIn: 7_200,
+                                                       refreshToken: "xxx",
+                                                       createdAt: 1_888_882))
+    
     func getSurveyList(input: SurveyRequest) -> Observable<([Survey], Meta)> {
         getSurveyListCalled = true
         return getSurveyListReturnValue
+    }
+    
+    func refreshToken(input: RefreshTokenRequest) -> Observable<User> {
+        refreshTokenCalled = true
+        return refreshTokenReturnValue
     }
 }
