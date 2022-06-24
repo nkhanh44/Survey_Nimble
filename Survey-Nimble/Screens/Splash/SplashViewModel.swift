@@ -20,7 +20,7 @@ struct SplashViewModel: ViewModel {
         
         input.loadTrigger
             .filter { $0 }
-            .delay(RxTimeInterval.seconds(1))
+//            .delay(RxTimeInterval.seconds(1)) // comment this for running unit test
             .flatMapLatest { _ in
                 return self.repository.getSurveyList(input: SurveyRequest(page: 1,
                                                                           pageSize: Constants.Numbers.pageSize))
@@ -36,7 +36,7 @@ struct SplashViewModel: ViewModel {
         
         input.loadTrigger
             .filter { !$0 }
-            .delay(RxTimeInterval.seconds(2))
+//            .delay(RxTimeInterval.seconds(2)) // comment this for running unit test
             .mapToVoid()
             .drive(onNext: navigator.toLoginScreen)
             .disposed(by: disposeBag)
