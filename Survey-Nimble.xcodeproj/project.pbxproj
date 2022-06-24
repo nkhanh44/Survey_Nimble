@@ -79,6 +79,7 @@
 		8BBA5BCC2864A18B004888E9 /* SplashViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA5BCB2864A18B004888E9 /* SplashViewModelTests.swift */; };
 		8BBA5BCE2864A23C004888E9 /* SplashNavigatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA5BCD2864A23C004888E9 /* SplashNavigatorMock.swift */; };
 		8BBA5BD12864BFB7004888E9 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA5BD02864BFB7004888E9 /* Configuration.swift */; };
+		8BBA5BD22865A7C6004888E9 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA5BD02864BFB7004888E9 /* Configuration.swift */; };
 		8BFAD36A285C4BB6005FCC06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFAD369285C4BB6005FCC06 /* AppDelegate.swift */; };
 		8BFAD373285C4BB9005FCC06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BFAD372285C4BB9005FCC06 /* Assets.xcassets */; };
 		8BFAD376285C4BB9005FCC06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFAD374285C4BB9005FCC06 /* LaunchScreen.storyboard */; };
@@ -875,6 +876,7 @@
 				8BB4154E2862185C00BC790F /* Environment.swift in Sources */,
 				8BB4154828620CFD00BC790F /* HomeNavigatorMock.swift in Sources */,
 				8BBA5BCE2864A23C004888E9 /* SplashNavigatorMock.swift in Sources */,
+				8BBA5BD22865A7C6004888E9 /* Configuration.swift in Sources */,
 				8BB41561286307C500BC790F /* ForgotPasswordViewModelTests.swift in Sources */,
 				8BFAD3B6285C693C005FCC06 /* Constants.swift in Sources */,
 				8BB4151D28608B8200BC790F /* TestError.swift in Sources */,
