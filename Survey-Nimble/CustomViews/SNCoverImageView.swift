@@ -9,8 +9,8 @@ import UIKit
 
 final class SNImageView: UIImageView {
     
-    let cache = NSCache<NSString, UIImage>()
-    let placeholderImage = UIImage(named: "avatar-placeholder")
+    private let cache = APIService.shared.cache
+    private let placeholderImage = UIImage(named: "ic_placeholder")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,14 +23,17 @@ final class SNImageView: UIImageView {
     }
     
     private func configure() {
-        contentMode = .scaleToFill
+        clipsToBounds = true
+        contentMode = .scaleAspectFit
         image = placeholderImage
     }
     
     func downLoadImage(from urlString: String) {
         let cacheKey = NSString(string: urlString)
         if let image = cache.object(forKey: cacheKey) {
+            contentMode = .scaleAspectFill
             self.image = image
+            return
         }
         
         guard let url = URL(string: urlString) else { return }
@@ -49,6 +52,7 @@ final class SNImageView: UIImageView {
             self.cache.setObject(image, forKey: cacheKey)
             
             DispatchQueue.main.async {
+                self.contentMode = .scaleAspectFill
                 self.image = image
             }
         }

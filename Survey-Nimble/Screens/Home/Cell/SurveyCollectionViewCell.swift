@@ -11,7 +11,7 @@ final class SurveyCollectionViewCell: UICollectionViewCell {
     
     private let titleLabel = SNLabel(fontSize: 28, style: .bold, color: .white)
     private let descriptionLabel = SNLabel(fontSize: 17, color: .white)
-    private let coverImageView = SNImageView(frame: .zero)
+    private var coverImageView = SNImageView(frame: .zero)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,6 +21,13 @@ final class SurveyCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        coverImageView.image = nil
+        titleLabel.text = ""
+        descriptionLabel.text = ""
     }
 }
 

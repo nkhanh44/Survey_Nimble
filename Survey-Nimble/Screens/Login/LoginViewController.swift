@@ -29,7 +29,7 @@ private enum Numbers {
     static let animateTime: DispatchTime = .now() + 1.5
     static let animateDuration: TimeInterval = 1.0
     
-    static let effectViewAlpha: CGFloat = 0.5
+    static let effectViewAlpha: CGFloat = 0.9
 }
 
 // MARK: Main

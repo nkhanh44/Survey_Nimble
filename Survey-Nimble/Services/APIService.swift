@@ -14,7 +14,7 @@ import Japx
 public class APIService {
     
     static let shared = APIService()
-    
+    let cache = NSCache<NSString, UIImage>()
     private var urlSession = URLSession(configuration: .default)
     
     func request<T: JapxCodable>(_ input: BaseRequest) -> Observable<T> {
