@@ -11,7 +11,7 @@ extension UIView {
     
     func setGradient(frame: CGRect? = nil,
                      firstColor: UIColor = .black,
-                     secondColor: UIColor = .black.withAlphaComponent(0.5),
+                     secondColor: UIColor = .black.withAlphaComponent(0.2),
                      cornerRadius: CGFloat = 0.0) {
         layoutIfNeeded()
         

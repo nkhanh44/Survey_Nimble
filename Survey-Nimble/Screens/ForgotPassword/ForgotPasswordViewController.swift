@@ -28,7 +28,7 @@ private enum Numbers {
     static let scaledTrasform: (CGFloat, CGFloat) = (0.75, 0.8)
     static let desTranslateTransformY: CGFloat = -(UIScreen.main.bounds.height / 3)
     
-    static let effectViewAlpha: CGFloat = 0.5
+    static let effectViewAlpha: CGFloat = 0.9
 }
 
 // MARK: Main

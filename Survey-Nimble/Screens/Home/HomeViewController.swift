@@ -128,7 +128,9 @@ extension HomeViewController {
                                 forCellWithReuseIdentifier: Constants.Strings.reuseIDSurveyCell)
         collectionView.register(EmptyCollectionViewCell.self,
                                 forCellWithReuseIdentifier: Constants.Strings.reuseIDEmptyCell)
-        
+        collectionView.backgroundColor = .black
+        collectionView.setGradient(firstColor: .black,
+                                   secondColor: .black.withAlphaComponent(0.1))
         view.addSubview(collectionView)
         view.sendSubviewToBack(collectionView)
         
@@ -288,12 +290,6 @@ extension HomeViewController {
 
 extension HomeViewController: UICollectionViewDelegate {
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        UIView.animate(withDuration: 0) {
-            self.view.alpha = 0.8
-        }
-    }
-    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let offsetX = scrollView.contentOffset.x
         let contentWidth = scrollView.contentSize.width
@@ -306,9 +302,6 @@ extension HomeViewController: UICollectionViewDelegate {
             }
             page += 1
             loadTrigger.onNext(page)
-        }
-        UIView.animate(withDuration: 0.5) {
-            self.view.alpha = 1
         }
         
         pageControl.currentPage = Int(offsetX) / Int(width)
