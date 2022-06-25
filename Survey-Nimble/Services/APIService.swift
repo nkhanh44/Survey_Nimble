@@ -44,17 +44,24 @@ public class APIService {
                     
                     do {
                         let sData = data ?? Data()
-                        if (200...399).contains(statusCode) {
+                        switch statusCode {
+                        case (200...399):
                             let result = try JapxDecoder().decode(JapxResponse<T>.self, from: sData)
                             observer.onNext(result.data)
-                        } else if let errorResponseArray = try? JSONDecoder().decode(ErrorResponseArray.self,
-                                                                                     from: sData),
-                                  let errorResponse = errorResponseArray.errors.first {
-                            observer.onError(SNError.apiError(errorResponse))
+                        default:
+                            if let errorResponseArray = try? JSONDecoder().decode(ErrorResponseArray.self,
+                                                                                  from: sData),
+                               let errorResponse = errorResponseArray.errors.first {
+                                observer.onError(SNError.apiError(errorResponse))
+                            } else if let error = error {
+                                observer.onError(error)
+                            }
                         }
                     } catch {
                         observer.onError(error)
                     }
+                } else if error != nil {
+                    observer.onError(SNError.apiError(ErrorResponse(detail: error?.localizedDescription ?? "lost connection", code: "")))
                 }
                 observer.onCompleted()
             }
@@ -86,6 +93,7 @@ public class APIService {
             print("url: ", request)
             
             let task = self.urlSession.dataTask(with: request) { data, response, error in
+                
                 if let httpResponse = response as? HTTPURLResponse {
                     let statusCode = httpResponse.statusCode
                     print("statusCode: ", statusCode)
@@ -95,20 +103,30 @@ public class APIService {
                         return
                     }
                     
-                    
                     do {
                         let sData = data ?? Data()
-                        if (200...399).contains(statusCode) {
+                        switch statusCode {
+                        case (200...399):
                             let result = try JapxDecoder().decode(JapxResponseArray<T>.self, from: sData)
                             observer.onNext((result.data ?? [], result.meta))
-                        } else if let errorResponseArray = try? JSONDecoder().decode(ErrorResponseArray.self,
-                                                                                     from: sData),
-                                  let errorResponse = errorResponseArray.errors.first {
-                            observer.onError(SNError.apiError(errorResponse))
+                        case 404:
+                            observer.onError(SNError.notFound)
+                        default:
+                            if let errorResponseArray = try? JSONDecoder().decode(ErrorResponseArray.self,
+                                                                                  from: sData),
+                               let errorResponse = errorResponseArray.errors.first {
+                                observer.onError(SNError.apiError(errorResponse))
+                            } else if error != nil {
+                                observer.onError(SNError.apiError(ErrorResponse(detail: error?.localizedDescription ?? "",
+                                                                                code: "")))
+                            }
                         }
                     } catch {
                         observer.onError(error)
                     }
+                } else if error != nil {
+                    observer.onError(SNError.apiError(ErrorResponse(detail: error?.localizedDescription ?? "",
+                                                                    code: "")))
                 }
                 observer.onCompleted()
             }
@@ -117,21 +135,35 @@ public class APIService {
             return Disposables.create {
                 task.cancel()
             }
-        }.retry { error -> Observable<Error> in
-            return error.flatMapLatest { error -> Observable<Error> in
-                return self.renewToken().do(onError: { sError in
-                    self.backToLogin()
-                }).flatMapLatest { response -> Observable<Error> in
-                    KeychainAccess.remove()
-                    KeychainAccess.userInfo = response
-                    return Observable.just(error)
+        }
+        .retry { error -> Observable<Error> in
+            return error
+                .flatMapLatest { error -> Observable<Error> in
+                    return self.renewToken(error).do(onError: { sError in
+                        guard let convertedError = sError as? SNError,
+                              convertedError == .expiredRefreshToken else {
+                            return
+                        }
+                        self.backToLogin()
+                    }).flatMapLatest { response -> Observable<Error> in
+                        KeychainAccess.remove()
+                        KeychainAccess.userInfo = response
+                        return Observable.just(error)
+                    }
                 }
-            }
         }
     }
     
-    func renewToken() -> Observable<User> {
+    func renewToken(_ error: Error) -> Observable<User> {
         return Observable.create { observer in
+            
+            // check only unauthen error allows to go through
+            guard let convertedError = error as? SNError,
+                  convertedError == .unauthentication else {
+                observer.onError(error)
+                return Disposables.create {}
+            }
+            
             let input = RefreshTokenRequest()
             guard let url = URL(string: input.url) else {
                 observer.onCompleted()
@@ -156,17 +188,28 @@ public class APIService {
                     
                     do {
                         let sData = data ?? Data()
-                        if (200...399).contains(statusCode) {
+                        switch statusCode {
+                        case (200...399):
                             let result = try JapxDecoder().decode(JapxResponse<User>.self, from: sData)
                             observer.onNext(result.data)
-                        } else if let errorResponseArray = try? JSONDecoder().decode(ErrorResponseArray.self,
-                                                                                     from: sData),
-                                  let errorResponse = errorResponseArray.errors.first {
-                            observer.onError(SNError.apiError(errorResponse))
+                        case 400:
+                            observer.onError(SNError.expiredRefreshToken)
+                        default:
+                            if let errorResponseArray = try? JSONDecoder().decode(ErrorResponseArray.self,
+                                                                                  from: sData),
+                               let errorResponse = errorResponseArray.errors.first {
+                                observer.onError(SNError.apiError(errorResponse))
+                            } else if error != nil {
+                                observer.onError(SNError.apiError(ErrorResponse(detail: error?.localizedDescription ?? "",
+                                                                                code: "")))
+                            }
                         }
                     } catch {
                         observer.onError(error)
                     }
+                } else if error != nil {
+                    observer.onError(SNError.apiError(ErrorResponse(detail: error?.localizedDescription ?? "",
+                                                                    code: "")))
                 }
                 observer.onCompleted()
             }
@@ -203,21 +246,30 @@ public class APIService {
                 if let httpResponse = response as? HTTPURLResponse {
                     let statusCode = httpResponse.statusCode
                     print("statusCode: ", statusCode)
+                    
                     do {
                         let sData = data ?? Data()
-                        if (200...399).contains(statusCode) {
+                        switch statusCode {
+                        case (200...399):
                             let result = try JSONDecoder().decode(NoReply.self, from: sData)
                             print("message:", result.meta.message)
                             guard let res = result.meta as? T else { return }
                             observer.onNext(res)
-                        } else if let errorResponseArray = try? JSONDecoder().decode(ErrorResponseArray.self,
-                                                                                     from: sData),
-                                  let errorResponse = errorResponseArray.errors.first {
-                            observer.onError(SNError.apiError(errorResponse))
+                        default:
+                            if let errorResponseArray = try? JSONDecoder().decode(ErrorResponseArray.self,
+                                                                                  from: sData),
+                               let errorResponse = errorResponseArray.errors.first {
+                                observer.onError(SNError.apiError(errorResponse))
+                            } else {
+                                observer.onError(error!)
+                            }
                         }
                     } catch {
                         observer.onError(error)
                     }
+                } else if error != nil {
+                    observer.onError(SNError.apiError(ErrorResponse(detail: error?.localizedDescription ?? "lost connection",
+                                                                    code: "")))
                 }
                 observer.onCompleted()
             }

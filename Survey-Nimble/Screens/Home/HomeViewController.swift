@@ -37,6 +37,7 @@ final class HomeViewController: UIViewController, ViewModelBased {
     private let hostNames = [nil, "google.com"]
     private var hostIndex = 0
     private var surveyList = [Survey]()
+    private var shouldRetry = false
     
     private var loadTrigger = PublishSubject<Int>()
     private var toDetailTrigger = PublishSubject<Void>()
@@ -62,6 +63,7 @@ final class HomeViewController: UIViewController, ViewModelBased {
         UIView.animate(withDuration: 1) {
             self.view.alpha = 1
         }
+        shouldRetry = true
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
@@ -69,6 +71,7 @@ final class HomeViewController: UIViewController, ViewModelBased {
         super.viewWillDisappear(animated)
         
         reachability?.stopNotifier()
+        shouldRetry = false
         NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: reachability)
     }
     
@@ -265,7 +268,7 @@ extension HomeViewController {
         let reachability = note.object as? Reachability
         
         if reachability?.connection != .unavailable {
-            guard surveyList.isEmpty else { return }
+            guard surveyList.isEmpty && shouldRetry else { return }
             loadTrigger.onNext(page)
         } else {
             showAlert(with: SNError.lostConnection, color: .red)
