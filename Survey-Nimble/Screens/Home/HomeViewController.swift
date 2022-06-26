@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Reachability
+import UIView_Shimmer
 
 // MARK: Number constants
 
@@ -31,6 +32,7 @@ final class HomeViewController: UIViewController, ViewModelBased {
     private let avatarImageView = UIImageView(image: UIImage(named: "ic_avatar_placeholder") ?? UIImage())
     private let pageControl = UIPageControl()
     private var collectionView: UICollectionView!
+    
     private var page = 1
     private var hasMoreSurvey = false
     private var reachability: Reachability?
@@ -38,6 +40,13 @@ final class HomeViewController: UIViewController, ViewModelBased {
     private var hostIndex = 0
     private var surveyList = [Survey]()
     private var shouldRetry = false
+    
+    private var isLoading = true {
+        didSet {
+            collectionView.isUserInteractionEnabled = !isLoading
+            collectionView.reloadData()
+        }
+    }
     
     private var loadTrigger = PublishSubject<Int>()
     private var toDetailTrigger = PublishSubject<Void>()
@@ -48,13 +57,18 @@ final class HomeViewController: UIViewController, ViewModelBased {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupShimmeringImage(completion: { [weak self] in
-            self?.configureCollectionView()
-            self?.configure()
-            self?.setupView()
-            self?.configureComponents()
-            self?.startHost(at: 0)
-        })
+        configureCollectionView()
+        configure()
+        setupView()
+        configureComponents()
+        startHost(at: 0)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.isLoading = false
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -191,6 +205,8 @@ extension HomeViewController {
                 $0.height.equalTo(10)
             }
         }
+        pageControl.isHidden = true
+        nextButton.isHidden = true
     }
     
     private func configureComponents() {
@@ -338,8 +354,23 @@ extension HomeViewController: UICollectionViewDataSource {
                                                             for: indexPath) as? SurveyCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.set(survey: survey)
+        cell.set(survey: survey, isFirstLoaded: isLoading)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        willDisplay cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
+        cell.setTemplateWithSubviews(isLoading, color: .darkGray, animate: true, viewBackgroundColor: .black)
+        configShimmerViews()
+        guard let sCell = cell as? SurveyCollectionViewCell else { return }
+        sCell.isShimmerLoading(isLoading)
+    }
+    
+    private func configShimmerViews() {
+        view.setTemplateWithSubviews(isLoading, color: .darkGray, animate: true, viewBackgroundColor: .black)
+        pageControl.isHidden = isLoading
+        nextButton.isHidden = isLoading
     }
 }

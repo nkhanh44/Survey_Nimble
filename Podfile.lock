@@ -17,6 +17,7 @@ PODS:
     - RxSwift (= 6.5.0)
   - SnapKit (5.6.0)
   - SwiftLint (0.43.1)
+  - UIView-Shimmer (1.0.4)
 
 DEPENDENCIES:
   - IQKeyboardManager
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - RxTest (= 6.5.0)
   - SnapKit (~> 5.6.0)
   - SwiftLint
+  - UIView-Shimmer (~> 1.0)
 
 SPEC REPOS:
   trunk:
@@ -43,6 +45,7 @@ SPEC REPOS:
     - RxTest
     - SnapKit
     - SwiftLint
+    - UIView-Shimmer
 
 SPEC CHECKSUMS:
   IQKeyboardManager: 45a1fa55c1a5b02c61ac0fd7fd5b62bb4ad20d97
@@ -56,7 +59,8 @@ SPEC CHECKSUMS:
   RxTest: eb2d23adefc5a5ebf5779c7792fa3edfe6ebcc17
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+  UIView-Shimmer: ff0a32c73d67c7dbdea3d9e530538b10d18aea56
 
-PODFILE CHECKSUM: 610952863b6c5acbea465a629249f355334e2b2d
+PODFILE CHECKSUM: dbcfee84e603fe975fca298805dbe39bf18d53ff
 
 COCOAPODS: 1.10.1

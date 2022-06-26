@@ -118,6 +118,7 @@
 		636D045FFB3B4A7C0D839EAB /* Pods_Survey_NimbleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Survey_NimbleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A9E430AF19C44979D3E287 /* Pods-Survey-Nimble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Survey-Nimble.debug.xcconfig"; path = "Target Support Files/Pods-Survey-Nimble/Pods-Survey-Nimble.debug.xcconfig"; sourceTree = "<group>"; };
 		8A496DCA056E9788C60D890E /* Pods_Survey_Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Survey_Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B20C9F52868337500E3729C /* Secret.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secret.xcconfig; sourceTree = "<group>"; };
 		8B392D34285DB449006042A7 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		8B67D370285C8378006B7AB0 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		8B67D372285C8409006B7AB0 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
@@ -501,6 +502,7 @@
 				8BFAD3A4285C634C005FCC06 /* Fonts */,
 				8BFAD377285C4BB9005FCC06 /* Info.plist */,
 				8BFAD372285C4BB9005FCC06 /* Assets.xcassets */,
+				8B20C9F52868337500E3729C /* Secret.xcconfig */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1241,7 +1243,7 @@
 		};
 		8BFAD391285C4BB9005FCC06 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 87A9E430AF19C44979D3E287 /* Pods-Survey-Nimble.debug.xcconfig */;
+			baseConfigurationReference = 8B20C9F52868337500E3729C /* Secret.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
