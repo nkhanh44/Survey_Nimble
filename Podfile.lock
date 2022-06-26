@@ -4,6 +4,9 @@ PODS:
     - Japx/Core (= 4.0.0)
   - Japx/Core (4.0.0)
   - KeychainAccess (4.2.2)
+  - KIF (3.8.7):
+    - KIF/Core (= 3.8.7)
+  - KIF/Core (3.8.7)
   - ReachabilitySwift (5.0.0)
   - RxBlocking (6.5.0):
     - RxSwift (= 6.5.0)
@@ -23,6 +26,7 @@ DEPENDENCIES:
   - IQKeyboardManager
   - Japx
   - KeychainAccess
+  - KIF
   - ReachabilitySwift
   - RxBlocking (= 6.5.0)
   - RxCocoa (= 6.5.0)
@@ -37,6 +41,7 @@ SPEC REPOS:
     - IQKeyboardManager
     - Japx
     - KeychainAccess
+    - KIF
     - ReachabilitySwift
     - RxBlocking
     - RxCocoa
@@ -51,6 +56,7 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 45a1fa55c1a5b02c61ac0fd7fd5b62bb4ad20d97
   Japx: 4bb2d79d023af5e7ea44c0a2875c4b070080e111
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
+  KIF: 779cdbca106633b94ecee7b036537490ebdbd9de
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   RxBlocking: 04b5fd28bb5ea49f7d64b80db8bbfe50d9cc1c7d
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
@@ -61,6 +67,6 @@ SPEC CHECKSUMS:
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   UIView-Shimmer: ff0a32c73d67c7dbdea3d9e530538b10d18aea56
 
-PODFILE CHECKSUM: dbcfee84e603fe975fca298805dbe39bf18d53ff
+PODFILE CHECKSUM: 8551fd9cb613ce50326ad4adf9b7c7f95f357eb6
 
 COCOAPODS: 1.10.1

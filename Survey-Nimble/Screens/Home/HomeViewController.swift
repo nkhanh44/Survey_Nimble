@@ -214,6 +214,7 @@ extension HomeViewController {
         pageControl.addTarget(self, action: #selector(didPageControlChange), for: .valueChanged)
         
         todayLabel.text = Constants.Strings.today
+        todayLabel.accessibilityLabel = "home.today.label"
         
         dateLabel.text = Date().convertToSNDateFormat()
         

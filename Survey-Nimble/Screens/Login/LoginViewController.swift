@@ -51,7 +51,6 @@ final class LoginViewController: BaseViewController, ViewModelBased {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configure()
         startBlurBackground()
         setupView()
@@ -117,6 +116,9 @@ extension LoginViewController {
     }
     
     private func setupView() {
+        emailTextField.accessibilityLabel = "login.email.textfield"
+        passwordTextField.accessibilityLabel = "login.password.textfield"
+        loginButton.accessibilityLabel = "login.tap.button"
         backgroundImageView.addSubview(stackView)
         
         stackView.snp.makeConstraints {

@@ -138,7 +138,7 @@ extension ForgotPasswordViewController {
         emailTextField.snp.makeConstraints {
             $0.height.equalTo(Numbers.emailTextFieldHeight)
         }
-        
+        emailTextField.accessibilityLabel = "forgot.email.textfield"
         emailTextField.addSubview(errorEmailLabel)
         
         let errorPadding = Numbers.errorLabelPadding
