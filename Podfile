@@ -14,6 +14,7 @@ target 'Survey-Nimble' do
     pod 'KeychainAccess'
     pod 'IQKeyboardManager'
     pod 'ReachabilitySwift'
+    pod 'UIView-Shimmer', '~> 1.0'
 
   target 'Survey-NimbleTests' do
     inherit! :search_paths

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UIView_Shimmer
 
 final class SNImageView: UIImageView {
     
@@ -60,3 +61,7 @@ final class SNImageView: UIImageView {
         task.resume()
     }
 }
+
+// MARK: Shimmer
+
+extension UIImageView: ShimmeringViewProtocol {}

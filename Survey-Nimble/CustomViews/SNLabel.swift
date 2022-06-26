@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UIView_Shimmer
 
 final class SNLabel: UILabel {
     
@@ -33,3 +34,7 @@ final class SNLabel: UILabel {
         lineBreakMode = .byWordWrapping
     }
 }
+
+// MARK: Shimmer
+
+extension UILabel: ShimmeringViewProtocol {}
