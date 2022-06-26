@@ -10,7 +10,7 @@ import UIView_Shimmer
 
 final class SurveyCollectionViewCell: UICollectionViewCell {
     
-    private var titleLabel = SNLabel(fontSize: 28, style: .bold, color: .white)
+    var titleLabel = SNLabel(fontSize: 28, style: .bold, color: .white)
     private var descriptionLabel = SNLabel(fontSize: 17, color: .white)
     private var coverImageView = SNImageView(frame: .zero)
     private let pageControlLabel = SNLabel(fontSize: 17, color: .white)
@@ -26,7 +26,6 @@ final class SurveyCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupView()
         setupShimmerView()
     }

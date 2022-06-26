@@ -23,4 +23,10 @@ target 'Survey-Nimble' do
     pod 'RxTest', '6.5.0'
   end
 
+  target 'Survey-NimbleUITests' do
+    inherit! :search_paths
+    # Pods for testing
+    pod 'KIF', :configurations => ['Debug']
+  end
+
 end

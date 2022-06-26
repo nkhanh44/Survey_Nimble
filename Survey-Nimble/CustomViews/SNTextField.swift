@@ -65,6 +65,7 @@ final class SNTextField: UITextField {
         
         paddingLeft = 12
         paddingRight = 12
+        autocapitalizationType = .none
     }
     
     private func displayTextFieldStyle() {
@@ -101,6 +102,7 @@ final class SNTextField: UITextField {
             $0.bottom.equalToSuperview()
             $0.width.equalTo(56)
         }
+        forgotPasswordButton.accessibilityLabel = "login.forgot.button"
         forgotPasswordButton
             .rx
             .tap
