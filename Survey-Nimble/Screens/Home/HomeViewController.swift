@@ -226,12 +226,35 @@ extension HomeViewController {
                 self?.toDetailTrigger.onNext(())
             })
             .disposed(by: disposeBag)
+        
+        // this function only for UITest purpose
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(gesture:)))
+        avatarImageView.isUserInteractionEnabled = true
+        avatarImageView.accessibilityLabel = "home.avatar.imageView"
+        avatarImageView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func imageTapped(gesture: UIGestureRecognizer) {
+        if (gesture.view as? UIImageView) != nil {
+            backToLogin()
+        }
     }
     
     @objc private func didPageControlChange(_ sender: UIPageControl) {
         collectionView.scrollToItem(at: IndexPath(item: sender.currentPage, section: 0),
                                     at: .centeredHorizontally,
                                     animated: true)
+    }
+    
+    // this function only for UITest purpose
+    private func backToLogin() {
+        DispatchQueue.main.async {
+            let loginVC = LoginViewController()
+            let navigationController = UINavigationController(rootViewController: loginVC)
+            
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+            appDelegate.window?.rootViewController = navigationController
+        }
     }
 }
 

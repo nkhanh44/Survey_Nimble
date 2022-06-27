@@ -119,6 +119,7 @@ extension ForgotPasswordViewController {
         
         backgroundImageView.addSubview(stackView)
         
+        backButton.accessibilityLabel = "forgot.back.button"
         backButton.snp.makeConstraints {
             $0.width.equalTo(12)
             $0.height.equalTo(20)

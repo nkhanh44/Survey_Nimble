@@ -11,6 +11,7 @@
 		8B20CA242868CE1B00E3729C /* LoginUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20CA112868C18900E3729C /* LoginUITest.swift */; };
 		8B20CA252868CE2100E3729C /* KIFTestActor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20CA0C2868C11000E3729C /* KIFTestActor+.swift */; };
 		8B20CA262868CE2300E3729C /* XCTestCase+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20CA0E2868C14400E3729C /* XCTestCase+.swift */; };
+		8B20CA2A2869873100E3729C /* LoginFlowUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20CA292869873100E3729C /* LoginFlowUITest.swift */; };
 		8B392D35285DB449006042A7 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B392D34285DB449006042A7 /* UITextField+.swift */; };
 		8B67D371285C8378006B7AB0 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D370285C8378006B7AB0 /* SplashViewController.swift */; };
 		8B67D373285C8409006B7AB0 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67D372285C8409006B7AB0 /* UIViewController+.swift */; };
@@ -137,6 +138,7 @@
 		8B20CA0E2868C14400E3729C /* XCTestCase+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+.swift"; sourceTree = "<group>"; };
 		8B20CA112868C18900E3729C /* LoginUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUITest.swift; sourceTree = "<group>"; };
 		8B20CA192868CDFC00E3729C /* Survey-NimbleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Survey-NimbleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B20CA292869873100E3729C /* LoginFlowUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlowUITest.swift; sourceTree = "<group>"; };
 		8B392D34285DB449006042A7 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		8B67D370285C8378006B7AB0 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		8B67D372285C8409006B7AB0 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				8B20CA112868C18900E3729C /* LoginUITest.swift */,
+				8B20CA292869873100E3729C /* LoginFlowUITest.swift */,
 				8B20CA0C2868C11000E3729C /* KIFTestActor+.swift */,
 				8B20CA0E2868C14400E3729C /* XCTestCase+.swift */,
 			);
@@ -919,6 +922,7 @@
 				8B20CA252868CE2100E3729C /* KIFTestActor+.swift in Sources */,
 				8B20CA242868CE1B00E3729C /* LoginUITest.swift in Sources */,
 				8B20CA262868CE2300E3729C /* XCTestCase+.swift in Sources */,
+				8B20CA2A2869873100E3729C /* LoginFlowUITest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
