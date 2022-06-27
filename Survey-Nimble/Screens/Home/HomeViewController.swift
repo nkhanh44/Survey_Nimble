@@ -333,6 +333,13 @@ extension HomeViewController {
 
 extension HomeViewController: UICollectionViewDelegate {
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetX = scrollView.contentOffset.x
+        let width = scrollView.frame.size.width
+        
+        pageControl.currentPage = Int(offsetX) / Int(width)
+    }
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let offsetX = scrollView.contentOffset.x
         let contentWidth = scrollView.contentSize.width
@@ -346,8 +353,6 @@ extension HomeViewController: UICollectionViewDelegate {
             page += 1
             loadTrigger.onNext(page)
         }
-        
-        pageControl.currentPage = Int(offsetX) / Int(width)
     }
 }
 
