@@ -1,6 +1,6 @@
 # Survey_Nimble
 - Target: iOS 10+ <br>
-- Xcode: 12.5.1 <br>
+- Xcode: 13.4.1 <br>
 - Swift: 5 <br>
 - Pod: 1.10.1 <br>
 - Structure: MVVM + RxSwift + RxCocoa <br>
@@ -47,6 +47,7 @@
 ---------------
 ## Other
 - I break and track my tasks at https://trello.com/b/Fo5pbyiy/tracking-task
+- SwiftLint configuration using template from https://github.com/nimblehq/ios-templates
 
 
 
