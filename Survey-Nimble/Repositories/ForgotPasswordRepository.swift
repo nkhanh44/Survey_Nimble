@@ -23,6 +23,6 @@ final class ForgotPasswordRepository: ForgotPasswordRepositoryType {
     }
 
     func reset(input: ForgotPasswordRequest) -> Observable<Message> {
-        return api.requestNoReply(input).map { $0 }
+        return api.request(input, decoder: .jSONDecoder).map { $0 }
     }
 }

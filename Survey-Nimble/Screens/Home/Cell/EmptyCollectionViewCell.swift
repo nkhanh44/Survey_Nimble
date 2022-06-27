@@ -7,11 +7,19 @@
 
 import UIKit
 import RxSwift
+import UIView_Shimmer
 
-final class EmptyCollectionViewCell: UICollectionViewCell {
+final class EmptyCollectionViewCell: UICollectionViewCell, ShimmeringViewProtocol {
     
     private let titleLabel = SNLabel(fontSize: 24, style: .regular, color: .white)
     private let logoImageView = UIImageView(image: UIImage(named: "ic_logo"))
+    
+    var excludedItems: Set<UIView> {
+        [
+            titleLabel,
+            logoImageView
+        ]
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

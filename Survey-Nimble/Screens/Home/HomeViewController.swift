@@ -281,9 +281,7 @@ extension HomeViewController {
     
     private func stopNotifier() {
         reachability?.stopNotifier()
-        NotificationCenter.default.removeObserver(self,
-                                                  name: .reachabilityChanged,
-                                                  object: nil)
+        NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: nil)
         reachability = nil
     }
     
@@ -366,17 +364,14 @@ extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         if surveyList.isEmpty {
             let reuseID = Constants.Strings.reuseIDEmptyCell
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseID,
                                                                 for: indexPath) as? EmptyCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            
             return cell
         }
-        
         let survey = surveyList[indexPath.item]
         let reuseID = Constants.Strings.reuseIDSurveyCell
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseID,

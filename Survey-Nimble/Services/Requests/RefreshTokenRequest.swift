@@ -18,6 +18,7 @@ final class RefreshTokenRequest: BaseRequest {
         
         if let refreshToken = KeychainAccess.userInfo?.refreshToken, !refreshToken.isEmpty {
             body["refresh_token"] = refreshToken
+            print("refresh_token", refreshToken)
         }
 
         print("body request:", body)
